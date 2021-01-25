@@ -1,0 +1,26 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UseWPF>true</UseWPF>
+    <AssemblyName>ISM_Vison</AssemblyName>
+    <UseWindowsForms>true</UseWindowsForms>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Prism.Unity" Version="8.0.0.1909" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ISM_Vison.Core\ISM_Vison.Core.csproj" />
+    <ProjectReference Include="..\Modules\ISM_Vison.Modules.ModuleName\ISM_Vison.Modules.ModuleName.csproj" />
+    <ProjectReference Include="..\Services\ISM_Vison.Services.Interfaces\ISM_Vison.Services.Interfaces.csproj" />
+    <ProjectReference Include="..\Services\ISM_Vison.Services\ISM_Vison.Services.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="halcondotnet">
+      <HintPath>..\..\..\..\..\..\..\Program Files\MVTec\HALCON-17.12-Progress\bin\dotnet35\halcondotnet.dll</HintPath>
+    </Reference>
+    <Reference Include="HLHal">
+      <HintPath>..\..\..\..\..\..\..\Program Files\MVTec\HALCON-17.12-Progress\bin\dotnet35\HLHal.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+</Project>

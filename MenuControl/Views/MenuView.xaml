@@ -1,0 +1,19 @@
+﻿<UserControl x:Class="MenuControl.Views.MenuView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"   >
+    <Grid>
+       
+        <Menu>
+            <!--<MenuItem Name="menuOpen" Header="File" Command="{Binding NavigateCommand}" CommandParameter="HelloWorldView"></MenuItem>-->
+            <MenuItem Header="File">
+                <MenuItem Header="Open" Command="{Binding NavigateCommand}" CommandParameter="ViewA"></MenuItem>
+                <MenuItem Header="Save" Command="{Binding NavigateCommand}" CommandParameter="ViewA"></MenuItem>
+                <MenuItem Header="Delete" Command="{Binding NavigateCommand}" CommandParameter="ViewB"></MenuItem>
+            </MenuItem>
+            <MenuItem Header="Edit"></MenuItem>
+            <MenuItem Header="View"></MenuItem>
+            <MenuItem Header="About"></MenuItem>
+        </Menu>
+    </Grid>
+</UserControl>
+

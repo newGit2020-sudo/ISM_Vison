@@ -1,0 +1,62 @@
+﻿<Window x:Class="ISM_Vison.Views.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:prism="http://prismlibrary.com/"
+        prism:ViewModelLocator.AutoWireViewModel="True"
+        xmlns:core="clr-namespace:ISM_Vison.Core;assembly=ISM_Vison.Core"
+        xmlns:halcon="clr-namespace:HalconDotNet;assembly=halcondotnet"
+        xmlns:HAL="clr-namespace:HLHal;assembly=HLHal"
+        Title="{Binding Title}" Height="350" Width="525" >
+    <Grid>
+        <DockPanel>
+            <Menu  DockPanel.Dock="Top">
+                <!--<MenuItem Name="menuOpen" Header="File" Command="{Binding NavigateCommand}" CommandParameter="HelloWorldView"></MenuItem>-->
+                <MenuItem Header="File">
+                    <MenuItem Header="Open" Command="{Binding NavigateCommand}" CommandParameter="ViewA"></MenuItem>
+                    <MenuItem Header="Save" Command="{Binding NavigateCommand}" CommandParameter="ViewA"></MenuItem>
+                    <MenuItem Header="Delete" Command="{Binding NavigateCommand}" CommandParameter="ViewB"></MenuItem>
+                </MenuItem>
+                <MenuItem Header="Edit"></MenuItem>
+                <MenuItem Header="View"></MenuItem>
+                <MenuItem Header="About"></MenuItem>
+            </Menu>
+            <!--<ContentControl  DockPanel.Dock="Top" Name="MenuRegion" prism:RegionManager.RegionName="MenuRegion" ></ContentControl>-->
+            <!--<ContentControl  DockPanel.Dock="Top" Name="ToolRegion" prism:RegionManager.RegionName="ToolRegion" ></ContentControl>-->
+            <ToolBar DockPanel.Dock="Top" >
+                <Button Content="创建序列" ></Button>
+                <Button Content="定位"></Button>
+            </ToolBar>
+            <StatusBar DockPanel.Dock="Bottom">
+                <TextBlock Text="statusBar"></TextBlock>
+            </StatusBar>
+            <ListBox DockPanel.Dock="Left" prism:RegionManager.RegionName="SequenceListlRegion" Width="70"></ListBox>
+            <StackPanel  Orientation="Horizontal"  DockPanel.Dock="Right">
+                <ContentControl  Name="序列Region" prism:RegionManager.RegionName="序列Region" Width="50" ></ContentControl>
+                <ContentControl  Name="属性Region" prism:RegionManager.RegionName="属性Region" Width="120"></ContentControl>
+            </StackPanel>
+            <Grid >
+                <Grid.RowDefinitions>
+                    <RowDefinition ></RowDefinition>
+                    <RowDefinition ></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition ></ColumnDefinition>
+                    <ColumnDefinition ></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <!--<ContentControl  Name="HalconRegion" cal:RegionManager.RegionName="HSmartWindownRegion" ></ContentControl>-->
+                <WindowsFormsHost Grid.Row="0" Grid.Column="0" >
+                    <HAL:HCtrl x:Name="Camera0" x:FieldModifier="public"></HAL:HCtrl> 
+                </WindowsFormsHost>
+                <WindowsFormsHost  Grid.Row="0" Grid.Column="1">
+                    <HAL:HCtrl x:Name="Camera1" x:FieldModifier="public"></HAL:HCtrl>
+                </WindowsFormsHost>
+                <WindowsFormsHost Grid.Row="1" Grid.Column="0" >
+                    <HAL:HCtrl x:Name="Camera2" x:FieldModifier="public"></HAL:HCtrl>
+                </WindowsFormsHost>
+                <WindowsFormsHost  Grid.Row="1" Grid.Column="1">
+                    <HAL:HCtrl x:Name="Camera3" x:FieldModifier="public"></HAL:HCtrl>
+                </WindowsFormsHost>
+            </Grid>
+        </DockPanel>
+    </Grid>
+</Window>
