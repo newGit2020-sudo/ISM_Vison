@@ -6,7 +6,7 @@
         xmlns:core="clr-namespace:ISM_Vison.Core;assembly=ISM_Vison.Core"
         xmlns:halcon="clr-namespace:HalconDotNet;assembly=halcondotnet"
         xmlns:HAL="clr-namespace:HLHal;assembly=HLHal"
-        Title="{Binding Title}" Height="350" Width="525" >
+        Title="{Binding Title}" Height="380" Width="550" >
     <Grid>
         <DockPanel>
             <Menu  DockPanel.Dock="Top">
@@ -22,17 +22,19 @@
             </Menu>
             <!--<ContentControl  DockPanel.Dock="Top" Name="MenuRegion" prism:RegionManager.RegionName="MenuRegion" ></ContentControl>-->
             <!--<ContentControl  DockPanel.Dock="Top" Name="ToolRegion" prism:RegionManager.RegionName="ToolRegion" ></ContentControl>-->
-            <ToolBar DockPanel.Dock="Top" >
+            <ToolBar DockPanel.Dock="Top"  >
                 <Button Content="创建序列" ></Button>
                 <Button Content="定位"></Button>
+                <Button Content="测试" Click="Button_Click"></Button>
             </ToolBar>
+            <ToolBar DockPanel.Dock="Top" Name="ToolRegion" prism:RegionManager.RegionName="ToolRegion" ></ToolBar>
             <StatusBar DockPanel.Dock="Bottom">
                 <TextBlock Text="statusBar"></TextBlock>
             </StatusBar>
             <ListBox DockPanel.Dock="Left" prism:RegionManager.RegionName="SequenceListlRegion" Width="70"></ListBox>
             <StackPanel  Orientation="Horizontal"  DockPanel.Dock="Right">
-                <ContentControl  Name="序列Region" prism:RegionManager.RegionName="序列Region" Width="50" ></ContentControl>
-                <ContentControl  Name="属性Region" prism:RegionManager.RegionName="属性Region" Width="120"></ContentControl>
+                <ContentControl  Name="序列Region" prism:RegionManager.RegionName="序列Region" Width="180" ></ContentControl>
+                <!--<ContentControl  Name="属性Region" prism:RegionManager.RegionName="属性Region" Width="120"></ContentControl>-->
             </StackPanel>
             <Grid >
                 <Grid.RowDefinitions>
@@ -57,6 +59,20 @@
                     <HAL:HCtrl x:Name="Camera3" x:FieldModifier="public"></HAL:HCtrl>
                 </WindowsFormsHost>
             </Grid>
+            <!--<WrapPanel>
+                <WindowsFormsHost Width="135" Height="135" >
+                    <HAL:HCtrl x:Name="Camera0" x:FieldModifier="public"></HAL:HCtrl>
+                </WindowsFormsHost>
+                <WindowsFormsHost Width="135" Height="135" >
+                    <HAL:HCtrl x:Name="Camera1" x:FieldModifier="public"></HAL:HCtrl>
+                </WindowsFormsHost>
+                <WindowsFormsHost Width="135" Height="135" >
+                    <HAL:HCtrl x:Name="Camera2" x:FieldModifier="public"></HAL:HCtrl>
+                </WindowsFormsHost>
+                <WindowsFormsHost Width="135" Height="135" >
+                    <HAL:HCtrl x:Name="Camera3" x:FieldModifier="public"></HAL:HCtrl>
+                </WindowsFormsHost>
+            </WrapPanel>-->
         </DockPanel>
     </Grid>
 </Window>

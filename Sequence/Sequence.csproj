@@ -5,6 +5,22 @@
     <AssemblyName>Sequence</AssemblyName>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Remove="ViewModels\PrismWindow1ViewModel.cs" />
+    <Compile Remove="Views\PrismWindow1.xaml.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Remove="Views\PrismWindow1.xaml" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="CommonServiceLocator" Version="2.0.5" />
     <PackageReference Include="Prism.Wpf" Version="8.0.0.1909" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Infrastructure\Infrastructure.csproj" />
+    <ProjectReference Include="..\ISM_Vison\ISM_Vison.Core\ISM_Vison.Core.csproj" />
+    <ProjectReference Include="..\UsingEventAggregator.Core\UsingEventAggregator.Core.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Modes\" />
   </ItemGroup>
 </Project>

@@ -4,6 +4,7 @@ using ISM_Vison.Services.Interfaces;
 using ISM_Vison.Views;
 using Prism.Ioc;
 using Prism.Modularity;
+using Sequence;
 using System.Windows;
 
 namespace ISM_Vison
@@ -26,6 +27,7 @@ namespace ISM_Vison
         protected override void ConfigureModuleCatalog(IModuleCatalog moduleCatalog)
         {
             moduleCatalog.AddModule<ModuleNameModule>();
+            moduleCatalog.AddModule<SequenceModule>();
         }
     }
 }

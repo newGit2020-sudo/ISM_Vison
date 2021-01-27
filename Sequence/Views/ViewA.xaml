@@ -12,5 +12,6 @@
         <TextBlock Text="{Binding Message}"
                        HorizontalAlignment="Center"
                        VerticalAlignment="Center" />
+        <TextBlock HorizontalAlignment="Left" Margin="102,120,0,0" Text="TextBlock" TextWrapping="Wrap" VerticalAlignment="Top"/>
     </Grid>
 </UserControl>
