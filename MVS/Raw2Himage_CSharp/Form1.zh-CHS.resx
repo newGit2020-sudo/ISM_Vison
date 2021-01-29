@@ -112,20 +112,20 @@
     <value>2.0</value>
   </resheader>
   <resheader name="reader">
-    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <resheader name="writer">
-    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="mscorlib" name="mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="bnSetParam.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="bnSetParam.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="bnSetParam.Location" type="System.Drawing.Point, System.Drawing">
     <value>106, 135</value>
   </data>
@@ -135,14 +135,8 @@
   <data name="tbGain.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
-  <data name="tbGain.Location" type="System.Drawing.Point, System.Drawing">
-    <value>106, 164</value>
-  </data>
   <data name="tbGain.Size" type="System.Drawing.Size, System.Drawing">
     <value>75, 21</value>
-  </data>
-  <data name="tbGain.TabIndex" type="System.Int32, mscorlib">
-    <value>11</value>
   </data>
   <data name="bnGetParam.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
@@ -162,14 +156,8 @@
   <data name="tbExposure.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
-  <data name="tbExposure.Location" type="System.Drawing.Point, System.Drawing">
-    <value>20, 164</value>
-  </data>
   <data name="tbExposure.Size" type="System.Drawing.Size, System.Drawing">
     <value>60, 21</value>
-  </data>
-  <data name="tbExposure.TabIndex" type="System.Int32, mscorlib">
-    <value>10</value>
   </data>
   <data name="bnTriggerExec.Location" type="System.Drawing.Point, System.Drawing">
     <value>106, 102</value>
@@ -182,5 +170,14 @@
   </data>
   <data name="bnStartGrab.Location" type="System.Drawing.Point, System.Drawing">
     <value>20, 69</value>
+  </data>
+  <data name="groupBox2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>655, 241</value>
+  </data>
+  <data name="groupBox2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>238, 272</value>
+  </data>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>920, 525</value>
   </data>
 </root>

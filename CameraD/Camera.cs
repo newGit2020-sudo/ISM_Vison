@@ -15,44 +15,26 @@ namespace CameraD
 {
     public abstract partial class Camera// : Control
     {
-        public static bool Image2HObject(int width, int height, IntPtr pImage, ref HObject hImage, HTuple hvWinHandle = null)
+        public static bool Image2HObject(int width, int height, IntPtr pImage, out HObject hImage, HTuple hvWinHandle = null)
         {
+            bool success = false;
+            object sw = new object();
+            HOperatorSet.GenEmptyObj(out hImage);
+            hImage.Dispose();
             try
             {
-                //HObject hoImage = null;
-                //HOperatorSet.GenEmptyObj(out hoImage);
-                //HOperatorSet.GenImage1Extern(out hoImage, "byte", new HTuple(width),
-                //                             new HTuple(height), new HTuple(pImage), new HTuple(0));
-                //if (hImage == null)
-                //    HOperatorSet.GenEmptyObj(out hImage);
-                //HOperatorSet.CopyImage(hoImage, out hImage);
-
-                if (hImage == null)
-                    HOperatorSet.GenEmptyObj(out hImage);
-
-                lock (hImage)
+                lock (sw)
                 {
-                    hImage.Dispose();
-                    //HOperatorSet.GenImage1(out hImage, "byte", new HTuple(width),
-                    //             new HTuple(height), new HTuple(pImage));
                     HOperatorSet.GenImage1Extern(out hImage, "byte", new HTuple(width),
                                  new HTuple(height), new HTuple(pImage), new HTuple(0));
-
-                    if (hvWinHandle != null)
-                    {
-                        //lock (thisLock)
-                        //{
-                        HOperatorSet.DispImage(hImage, hvWinHandle);
-                        //}
-                    }
+                    success = true;
                 }
             }
             catch (Exception ex)
             {
                 System.Diagnostics.Trace.WriteLine(ex.Message);
-                return false;
             }
-            return true;
+            return success;
         }
 
         public static void HobjectToHimage(HObject hobject, ref HImage image)
@@ -143,11 +125,6 @@ namespace CameraD
                 }
                 else
                     HOperatorSet.MirrorImage(tmpImage, out m_hImage, "diagonal");//对角翻转
-                //tmpImage.Dispose();
-            }
-            catch (HalconException HDevExpDefaultException)
-            {
-                throw HDevExpDefaultException;
             }
             finally
             {
@@ -412,11 +389,11 @@ namespace CameraD
                     HObject __Image = null;
                     if (m_iDir >= 0)
                     {
-                        bRtn = Image2HObject(width, height, pImage, ref __Image);//_tmpImage
+                        bRtn = Image2HObject(width, height, pImage, out __Image);
                        SetMirror(__Image);  //_tmpImage
                     }
                     else
-                        bRtn = Image2HObject(width, height, pImage, ref __Image);//
+                        bRtn = Image2HObject(width, height, pImage, out __Image);
                    CopyMaskImage(__Image);
                 }
                 ShowImage();

@@ -112,15 +112,15 @@
     <value>2.0</value>
   </resheader>
   <resheader name="reader">
-    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <resheader name="writer">
-    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="&gt;&gt;cbSoftTrigger.Parent" xml:space="preserve">
     <value>groupBox2</value>
   </data>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="bnContinuesMode.Location" type="System.Drawing.Point, System.Drawing">
     <value>20, 42</value>
   </data>
@@ -130,12 +130,18 @@
   <data name="bnClose.Text" xml:space="preserve">
     <value>关闭设备</value>
   </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="cbSoftTrigger.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
   <data name="&gt;&gt;bnStartGrab.ZOrder" xml:space="preserve">
     <value>7</value>
+  </data>
+  <data name="&gt;&gt;groupBox1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="cbSoftTrigger.Size" type="System.Drawing.Size, System.Drawing">
+    <value>60, 16</value>
   </data>
   <data name="bnEnum.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -155,23 +161,26 @@
   <data name="bnTriggerMode.Text" xml:space="preserve">
     <value>触发模式</value>
   </data>
+  <data name="groupBox2.Text" xml:space="preserve">
+    <value>采集图像</value>
+  </data>
   <data name="&gt;&gt;bnSetParam.Name" xml:space="preserve">
     <value>bnSetParam</value>
   </data>
-  <data name="bnStopGrab.Enabled" type="System.Boolean, mscorlib">
-    <value>False</value>
+  <data name="bnEnum.Location" type="System.Drawing.Point, System.Drawing">
+    <value>20, 54</value>
   </data>
   <data name="&gt;&gt;groupBox2.ZOrder" xml:space="preserve">
     <value>0</value>
+  </data>
+  <data name="tbGain.TabIndex" type="System.Int32, mscorlib">
+    <value>11</value>
   </data>
   <data name="&gt;&gt;bnTriggerMode.Name" xml:space="preserve">
     <value>bnTriggerMode</value>
   </data>
   <data name="bnClose.Location" type="System.Drawing.Point, System.Drawing">
     <value>106, 120</value>
-  </data>
-  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>863, 525</value>
   </data>
   <data name="bnStopGrab.Location" type="System.Drawing.Point, System.Drawing">
     <value>106, 92</value>
@@ -200,26 +209,26 @@
   <data name="bnSetParam.Location" type="System.Drawing.Point, System.Drawing">
     <value>117, 102</value>
   </data>
-  <data name="&gt;&gt;bnSetParam.ZOrder" xml:space="preserve">
-    <value>0</value>
+  <data name="&gt;&gt;bnContinuesMode.Parent" xml:space="preserve">
+    <value>groupBox2</value>
   </data>
-  <data name="tbGain.TabIndex" type="System.Int32, mscorlib">
-    <value>11</value>
+  <data name="groupBox1.Text" xml:space="preserve">
+    <value>初始化</value>
   </data>
   <data name="&gt;&gt;pictureBox1.Name" xml:space="preserve">
     <value>pictureBox1</value>
   </data>
   <data name="&gt;&gt;bnTriggerMode.Type" xml:space="preserve">
-    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
-    <value>6, 12</value>
+  <data name="&gt;&gt;groupBox1.Name" xml:space="preserve">
+    <value>groupBox1</value>
   </data>
   <data name="bnContinuesMode.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
   <data name="&gt;&gt;pictureBox1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="bnClose.Size" type="System.Drawing.Size, System.Drawing">
     <value>75, 23</value>
@@ -231,7 +240,7 @@
     <value>False</value>
   </data>
   <data name="&gt;&gt;tbExposure.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;bnClose.ZOrder" xml:space="preserve">
     <value>0</value>
@@ -251,8 +260,8 @@
   <data name="bnTriggerMode.Size" type="System.Drawing.Size, System.Drawing">
     <value>71, 16</value>
   </data>
-  <data name="bnOpen.Location" type="System.Drawing.Point, System.Drawing">
-    <value>20, 120</value>
+  <data name="bnTriggerExec.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 23</value>
   </data>
   <data name="bnStartGrab.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
@@ -267,16 +276,19 @@
     <value>161, 23</value>
   </data>
   <data name="&gt;&gt;bnStopGrab.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;cbDeviceList.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="bnTriggerExec.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
+  <data name="bnStartGrab.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
   <data name="&gt;&gt;tbGain.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;bnGetParam.Name" xml:space="preserve">
     <value>bnGetParam</value>
@@ -284,14 +296,8 @@
   <data name="&gt;&gt;bnOpen.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="&gt;&gt;bnContinuesMode.Type" xml:space="preserve">
-    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="bnSetParam.TabIndex" type="System.Int32, mscorlib">
     <value>9</value>
-  </data>
-  <data name="&gt;&gt;groupBox1.Name" xml:space="preserve">
-    <value>groupBox1</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>Form1</value>
@@ -308,8 +314,11 @@
   <data name="&gt;&gt;groupBox1.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
+  <data name="groupBox2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>655, 284</value>
+  </data>
   <data name="&gt;&gt;bnGetParam.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;groupBox1.Parent" xml:space="preserve">
     <value>$this</value>
@@ -341,14 +350,8 @@
   <data name="&gt;&gt;bnOpen.Name" xml:space="preserve">
     <value>bnOpen</value>
   </data>
-  <data name="bnEnum.Location" type="System.Drawing.Point, System.Drawing">
-    <value>20, 54</value>
-  </data>
   <data name="&gt;&gt;tbGain.ZOrder" xml:space="preserve">
     <value>1</value>
-  </data>
-  <data name="&gt;&gt;tbExposure.Parent" xml:space="preserve">
-    <value>groupBox2</value>
   </data>
   <data name="&gt;&gt;bnTriggerExec.ZOrder" xml:space="preserve">
     <value>4</value>
@@ -372,7 +375,7 @@
     <value>groupBox2</value>
   </data>
   <data name="&gt;&gt;bnClose.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="bnEnum.Text" xml:space="preserve">
     <value>查找设备</value>
@@ -395,11 +398,11 @@
   <data name="&gt;&gt;bnClose.Parent" xml:space="preserve">
     <value>groupBox1</value>
   </data>
-  <data name="bnTriggerExec.Size" type="System.Drawing.Size, System.Drawing">
-    <value>75, 23</value>
+  <data name="bnStopGrab.Text" xml:space="preserve">
+    <value>停止采集</value>
   </data>
   <data name="&gt;&gt;groupBox2.Type" xml:space="preserve">
-    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="bnTriggerExec.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
@@ -411,25 +414,25 @@
     <value>106, 146</value>
   </data>
   <data name="&gt;&gt;bnStartGrab.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;bnSetParam.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;bnContinuesMode.Parent" xml:space="preserve">
-    <value>groupBox2</value>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="bnGetParam.Location" type="System.Drawing.Point, System.Drawing">
     <value>-5, 102</value>
   </data>
   <data name="&gt;&gt;bnOpen.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="bnTriggerMode.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
+  </data>
+  <data name="bnOpen.Location" type="System.Drawing.Point, System.Drawing">
+    <value>20, 120</value>
   </data>
   <data name="&gt;&gt;bnTriggerMode.ZOrder" xml:space="preserve">
     <value>8</value>
@@ -437,14 +440,14 @@
   <data name="bnContinuesMode.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
-  <data name="bnContinuesMode.Size" type="System.Drawing.Size, System.Drawing">
-    <value>71, 16</value>
+  <data name="&gt;&gt;bnTriggerExec.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;bnStopGrab.ZOrder" xml:space="preserve">
     <value>6</value>
   </data>
-  <data name="groupBox2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>655, 284</value>
+  <data name="bnTriggerMode.Location" type="System.Drawing.Point, System.Drawing">
+    <value>110, 42</value>
   </data>
   <data name="&gt;&gt;cbSoftTrigger.ZOrder" xml:space="preserve">
     <value>5</value>
@@ -452,20 +455,20 @@
   <data name="&gt;&gt;pictureBox1.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>6, 12</value>
+  </data>
   <data name="&gt;&gt;bnEnum.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="bnStopGrab.Text" xml:space="preserve">
-    <value>停止采集</value>
-  </data>
-  <data name="cbSoftTrigger.Size" type="System.Drawing.Size, System.Drawing">
-    <value>60, 16</value>
+  <data name="&gt;&gt;bnSetParam.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
   <data name="&gt;&gt;bnEnum.Parent" xml:space="preserve">
     <value>groupBox1</value>
   </data>
-  <data name="&gt;&gt;bnTriggerExec.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="bnStopGrab.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
   </data>
   <data name="cbSoftTrigger.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
@@ -485,11 +488,8 @@
   <data name="&gt;&gt;cbDeviceList.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="bnTriggerMode.Location" type="System.Drawing.Point, System.Drawing">
-    <value>110, 42</value>
-  </data>
-  <data name="groupBox1.Text" xml:space="preserve">
-    <value>初始化</value>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>863, 525</value>
   </data>
   <data name="bnSetParam.Size" type="System.Drawing.Size, System.Drawing">
     <value>75, 23</value>
@@ -509,17 +509,20 @@
   <data name="bnClose.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
   </data>
-  <data name="groupBox2.Text" xml:space="preserve">
-    <value>采集图像</value>
+  <data name="&gt;&gt;bnContinuesMode.ZOrder" xml:space="preserve">
+    <value>9</value>
   </data>
   <data name="&gt;&gt;cbSoftTrigger.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="bnStopGrab.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
   </data>
-  <data name="bnStartGrab.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
+  <data name="bnContinuesMode.Size" type="System.Drawing.Size, System.Drawing">
+    <value>71, 16</value>
+  </data>
+  <data name="&gt;&gt;bnContinuesMode.Type" xml:space="preserve">
+    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="groupBox2.Size" type="System.Drawing.Size, System.Drawing">
     <value>200, 227</value>
@@ -530,9 +533,6 @@
   <data name="tbExposure.TabIndex" type="System.Int32, mscorlib">
     <value>10</value>
   </data>
-  <data name="&gt;&gt;bnContinuesMode.ZOrder" xml:space="preserve">
-    <value>9</value>
-  </data>
   <data name="groupBox1.Location" type="System.Drawing.Point, System.Drawing">
     <value>655, 47</value>
   </data>
@@ -542,13 +542,13 @@
   <data name="&gt;&gt;cbSoftTrigger.Name" xml:space="preserve">
     <value>cbSoftTrigger</value>
   </data>
-  <data name="&gt;&gt;groupBox1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;tbExposure.Parent" xml:space="preserve">
+    <value>groupBox2</value>
   </data>
-  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
-  <metadata name="$this.Language" type="System.Globalization.CultureInfo, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <metadata name="$this.Language" type="System.Globalization.CultureInfo, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>zh-CHS</value>
   </metadata>
 </root>

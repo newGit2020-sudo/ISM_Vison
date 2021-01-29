@@ -13,7 +13,7 @@ namespace Sequence.ViewModels
     {
         public ToolViewViewModel(IRegionManager regionManager) :base(regionManager)
         {
-           // ServiceLocator.Current.GetService
+       //    ServiceLocator.Current.GetService()
         }
     }
 }

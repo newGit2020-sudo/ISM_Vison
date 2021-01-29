@@ -17,8 +17,10 @@
                     <MenuItem Header="Delete" Command="{Binding NavigateCommand}" CommandParameter="ViewB"></MenuItem>
                 </MenuItem>
                 <MenuItem Header="Edit"></MenuItem>
-                <MenuItem Header="View"></MenuItem>
+                <MenuItem Header="View" ></MenuItem>
                 <MenuItem Header="About"></MenuItem>
+                <MenuItem Name="OpenCamer" Header="打开相机" Click="OpenCamer_Click"></MenuItem>
+
             </Menu>
             <!--<ContentControl  DockPanel.Dock="Top" Name="MenuRegion" prism:RegionManager.RegionName="MenuRegion" ></ContentControl>-->
             <!--<ContentControl  DockPanel.Dock="Top" Name="ToolRegion" prism:RegionManager.RegionName="ToolRegion" ></ContentControl>-->
@@ -33,7 +35,7 @@
             </StatusBar>
             <ListBox DockPanel.Dock="Left" prism:RegionManager.RegionName="SequenceListlRegion" Width="70"></ListBox>
             <StackPanel  Orientation="Horizontal"  DockPanel.Dock="Right">
-                <ContentControl  Name="序列Region" prism:RegionManager.RegionName="序列Region" Width="180" ></ContentControl>
+                <ContentControl   prism:RegionManager.RegionName="SequenceRegion" ></ContentControl>
                 <!--<ContentControl  Name="属性Region" prism:RegionManager.RegionName="属性Region" Width="120"></ContentControl>-->
             </StackPanel>
             <Grid >

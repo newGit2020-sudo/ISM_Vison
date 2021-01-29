@@ -17,6 +17,9 @@ namespace ISM_Vison
         protected override Window CreateShell()
         {
             return Container.Resolve<MainWindow>();
+
+            //this._regionViewRegistry = ServiceLocator.Current.GetInstance<IRegionViewRegistry>();
+            //this._regionManager  = ServiceLocator.Current.GetInstance<IRegionManager>();
         }
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry)

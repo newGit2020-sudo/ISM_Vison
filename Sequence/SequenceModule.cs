@@ -16,13 +16,14 @@ namespace Sequence
         }
         public void OnInitialized(IContainerProvider containerProvider)
         {
-            this._regionManager.RegisterViewWithRegion(ToolRegion, typeof(Views.ToolView));
+            this._regionManager.RegisterViewWithRegion(ToolRegion, typeof(Views.ToolView)); 
+            this._regionManager.RegisterViewWithRegion(SequenceRegion, typeof(Views.FuncList)); 
         }
 
         public void RegisterTypes(IContainerRegistry containerRegistry)
         {
-
-            
+            containerRegistry.Register<IFunc_Obj, FUNC_OBJ2>("FUNC_OBJ2");
+            containerRegistry.Register<IFunc_Obj, FUNC_OBJ>("FUNC_OBJ");
         }
     }
 }

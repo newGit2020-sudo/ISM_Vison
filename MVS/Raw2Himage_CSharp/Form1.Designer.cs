@@ -37,6 +37,10 @@ namespace Raw2Himage_CSharp
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.bnEnum = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.bnSetParam = new System.Windows.Forms.Button();
+            this.tbGain = new System.Windows.Forms.TextBox();
+            this.bnGetParam = new System.Windows.Forms.Button();
+            this.tbExposure = new System.Windows.Forms.TextBox();
             this.bnTriggerExec = new System.Windows.Forms.Button();
             this.cbSoftTrigger = new System.Windows.Forms.CheckBox();
             this.bnStopGrab = new System.Windows.Forms.Button();
@@ -48,10 +52,6 @@ namespace Raw2Himage_CSharp
             this.bnOpen = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.cbDeviceList = new System.Windows.Forms.ComboBox();
-            this.bnSetParam = new System.Windows.Forms.Button();
-            this.bnGetParam = new System.Windows.Forms.Button();
-            this.tbExposure = new System.Windows.Forms.TextBox();
-            this.tbGain = new System.Windows.Forms.TextBox();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -79,6 +79,29 @@ namespace Raw2Himage_CSharp
             this.groupBox2.Controls.Add(this.bnContinuesMode);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.TabStop = false;
+            // 
+            // bnSetParam
+            // 
+            resources.ApplyResources(this.bnSetParam, "bnSetParam");
+            this.bnSetParam.Name = "bnSetParam";
+            this.bnSetParam.UseVisualStyleBackColor = true;
+            // 
+            // tbGain
+            // 
+            resources.ApplyResources(this.tbGain, "tbGain");
+            this.tbGain.Name = "tbGain";
+            // 
+            // bnGetParam
+            // 
+            resources.ApplyResources(this.bnGetParam, "bnGetParam");
+            this.bnGetParam.Name = "bnGetParam";
+            this.bnGetParam.UseVisualStyleBackColor = true;
+            this.bnGetParam.Click += new System.EventHandler(this.bnGetParam_Click);
+            // 
+            // tbExposure
+            // 
+            resources.ApplyResources(this.tbExposure, "tbExposure");
+            this.tbExposure.Name = "tbExposure";
             // 
             // bnTriggerExec
             // 
@@ -159,29 +182,6 @@ namespace Raw2Himage_CSharp
             resources.ApplyResources(this.cbDeviceList, "cbDeviceList");
             this.cbDeviceList.FormattingEnabled = true;
             this.cbDeviceList.Name = "cbDeviceList";
-            // 
-            // bnSetParam
-            // 
-            resources.ApplyResources(this.bnSetParam, "bnSetParam");
-            this.bnSetParam.Name = "bnSetParam";
-            this.bnSetParam.UseVisualStyleBackColor = true;
-            // 
-            // bnGetParam
-            // 
-            resources.ApplyResources(this.bnGetParam, "bnGetParam");
-            this.bnGetParam.Name = "bnGetParam";
-            this.bnGetParam.UseVisualStyleBackColor = true;
-            this.bnGetParam.Click += new System.EventHandler(this.bnGetParam_Click);
-            // 
-            // tbExposure
-            // 
-            resources.ApplyResources(this.tbExposure, "tbExposure");
-            this.tbExposure.Name = "tbExposure";
-            // 
-            // tbGain
-            // 
-            resources.ApplyResources(this.tbGain, "tbGain");
-            this.tbGain.Name = "tbGain";
             // 
             // Form1
             // 

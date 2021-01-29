@@ -102,9 +102,8 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>$(HALCONROOT)\bin\dotnet35\halcondotnet.dll</HintPath>
     </Reference>
-    <Reference Include="MvCameraControl.Net, Version=3.0.0.2, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\DotNet\AnyCpu\MvCameraControl.Net.dll</HintPath>
+    <Reference Include="MvCameraControl.Net">
+      <HintPath>C:\Program Files (x86)\MVS\Development\DotNet\win64\MvCameraControl.Net.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core">
