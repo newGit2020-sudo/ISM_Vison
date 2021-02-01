@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Sequence
 {
-    public class FUNC_OBJ : IFunc_Obj
+    public class Sequence_Fun : IFunc_Obj
     {
         public string Name { get; set; }
         public Type type { get => this.GetType(); }

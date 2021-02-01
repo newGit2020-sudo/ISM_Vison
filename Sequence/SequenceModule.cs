@@ -23,7 +23,7 @@ namespace Sequence
         public void RegisterTypes(IContainerRegistry containerRegistry)
         {
             containerRegistry.Register<IFunc_Obj, FUNC_OBJ2>("FUNC_OBJ2");
-            containerRegistry.Register<IFunc_Obj, FUNC_OBJ>("FUNC_OBJ");
+            containerRegistry.Register<IFunc_Obj, Sequence_Fun>("Sequence_Fun");
         }
     }
 }

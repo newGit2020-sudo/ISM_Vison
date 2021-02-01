@@ -10,9 +10,14 @@ namespace Sequence.ViewModels
 {
     public class FuncObjViewModel : RegionViewModelBase
     {
+        public DelegateCommand<string> NavigateCommand { get; private set; }
+        private void Navigate(string viewName)
+        {
+           
+        }
         public FuncObjViewModel(IRegionManager regionManager) : base(regionManager)
         {
-
+            this.NavigateCommand = new DelegateCommand<string>(this.Navigate);
         }
     }
 }

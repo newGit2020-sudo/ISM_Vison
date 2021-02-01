@@ -27,6 +27,7 @@ namespace ISM_Vison.ViewModels
         }
         private void Navigate(string viewName)
         {
+
         }
     }
 }

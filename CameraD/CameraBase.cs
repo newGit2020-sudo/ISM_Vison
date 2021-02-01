@@ -13,7 +13,7 @@ using HLHal;
 
 namespace CameraD 
 {
-    public abstract partial class Camera// : Control
+    public abstract partial class CameraBase// : Control
     {
         public static bool Image2HObject(int width, int height, IntPtr pImage, out HObject hImage, HTuple hvWinHandle = null)
         {
@@ -88,7 +88,7 @@ namespace CameraD
         /// 图像翻转: m_iDir=0水平轴翻转;m_iDir=1垂直翻转; m_iDir=2对接翻转;其他值忽略
         /// </summary>
         public int m_iDir = -1;
-        public Camera(HCtrl ShowWindows, string cameraName)
+        public CameraBase(HCtrl ShowWindows, string cameraName)
         {
             OnGetImage = HGrabImage;
             m_bGrabbing = false;

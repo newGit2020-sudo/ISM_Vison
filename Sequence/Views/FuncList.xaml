@@ -4,19 +4,21 @@
              xmlns:prism="http://prismlibrary.com/"             
              prism:ViewModelLocator.AutoWireViewModel="True">
     <Grid>
-        <!--<Grid.RowDefinitions>
+        <Grid.RowDefinitions>
             <RowDefinition ></RowDefinition>
             <RowDefinition ></RowDefinition>
-        </Grid.RowDefinitions>-->
+        </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition ></ColumnDefinition>
-            <ColumnDefinition Width="2"></ColumnDefinition>
+            <!--<ColumnDefinition Width="2"></ColumnDefinition>-->
             <ColumnDefinition ></ColumnDefinition>
         </Grid.ColumnDefinitions>
         
-        <ListBox Grid.Column="0" Width="50" Height="500"></ListBox>
-        <ContentControl Grid.Column="2" prism:RegionManager.RegionName="propertyRegion"></ContentControl>
-        <GridSplitter  Grid.Column="1"  HorizontalAlignment="Stretch" Width="2" ShowsPreview="True" />
+        <ListBox Grid.Column="0" Grid.RowSpan="2" Width="30" Height="50"></ListBox>
+        <DataGrid Grid.Column="1" Grid.Row="0" Width="50"></DataGrid>
+        <DataGrid Grid.Column="1" Grid.Row="1"></DataGrid>
+        <!--<ContentControl Grid.Column="2" prism:RegionManager.RegionName="propertyRegion"></ContentControl>-->
+        <!--<GridSplitter  Grid.Column="1"  HorizontalAlignment="Stretch" Width="2" ShowsPreview="True" />-->
         <!--<GridSplitter Grid.Row="2" Grid.Column="1" Grid.RowSpan="2" HorizontalAlignment="Left" VerticalAlignment="Stretch" ShowsPreview="True" />-->
     </Grid>
 </UserControl>

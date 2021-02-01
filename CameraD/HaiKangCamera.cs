@@ -16,7 +16,7 @@ using HLHal;
 
 namespace MVS_Camera
 {
-    public partial class HaiKangCamera : Camera
+    public partial class HaiKangCamera : CameraBase
     {
         public MyCamera.MV_CC_DEVICE_INFO_LIST m_pDeviceList;
         public CameraOperator m_pOperator;

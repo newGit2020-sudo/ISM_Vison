@@ -2,7 +2,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace DataDb
+namespace ISM_Vison.Models
 {
     public class VSDBContext : DbContext
     {
@@ -17,8 +17,9 @@ namespace DataDb
         public int CameraId { get; set; }
         public int SerialNumber{ get; set; }
         public string ClassType { get; set; }
-        public string Name { get; set; }
+        public string CameraName { get; set; }
         public string ExposureTime { get; set; }
+        public string CailbFile { get; set; }
         public string CameraType { get; set; }
         public string Field0 { get; set; } 
         public string Field1 { get; set; }
@@ -30,9 +31,9 @@ namespace DataDb
         public int SequenceId { get; set; }
         public string Product { get; set; }
         public string Name { get; set; }
-        public string CameraName { get; set; }
-        public string CameraSerial { get; set; } 
-        public string CailbFile { get; set; } 
+        public int CameraId { get; set; }
+        public string Field0 { get; set; }
+        public string Field1 { get; set; } 
         public string Field2 { get; set; }
         public string Field3 { get; set; }
         public List<IFunc_ObjTypeString> ClassTypeStrings { get; set; } 
