@@ -48,7 +48,7 @@ namespace ISM_Vison.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "ClassTypeStrings",
+                name: "IFunc_ObjTypeStrings",
                 columns: table => new
                 {
                     IFunc_ObjTypeStringId = table.Column<int>(type: "INTEGER", nullable: false)
@@ -59,9 +59,9 @@ namespace ISM_Vison.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_ClassTypeStrings", x => x.IFunc_ObjTypeStringId);
+                    table.PrimaryKey("PK_IFunc_ObjTypeStrings", x => x.IFunc_ObjTypeStringId);
                     table.ForeignKey(
-                        name: "FK_ClassTypeStrings_Sequences_SequenceId",
+                        name: "FK_IFunc_ObjTypeStrings_Sequences_SequenceId",
                         column: x => x.SequenceId,
                         principalTable: "Sequences",
                         principalColumn: "SequenceId",
@@ -69,8 +69,8 @@ namespace ISM_Vison.Migrations
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_ClassTypeStrings_SequenceId",
-                table: "ClassTypeStrings",
+                name: "IX_IFunc_ObjTypeStrings_SequenceId",
+                table: "IFunc_ObjTypeStrings",
                 column: "SequenceId");
         }
 
@@ -80,7 +80,7 @@ namespace ISM_Vison.Migrations
                 name: "Cameras");
 
             migrationBuilder.DropTable(
-                name: "ClassTypeStrings");
+                name: "IFunc_ObjTypeStrings");
 
             migrationBuilder.DropTable(
                 name: "Sequences");

@@ -94,9 +94,6 @@ namespace CameraD
             m_bGrabbing = false;
             m_ShowWindows = ShowWindows;
             m_sCameraName = cameraName;
-            //imageLock = m_ShowWindows.thisLock;
-            ////imageLock = ShowControl.thisLock;
-
             ResetAllEvent();
         }
 

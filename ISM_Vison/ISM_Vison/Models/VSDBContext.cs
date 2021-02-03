@@ -8,7 +8,7 @@ namespace ISM_Vison.Models
     {
         public DbSet<Camera> Cameras { get; set; }
         public DbSet<Sequence> Sequences { get; set; }
-        public DbSet<IFunc_ObjTypeString> ClassTypeStrings { get; set; }
+        public DbSet<IFunc_ObjTypeString> IFunc_ObjTypeStrings { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder options)
             => options.UseSqlite("Data Source=VSDBContext.db");
     }

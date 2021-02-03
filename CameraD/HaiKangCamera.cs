@@ -40,6 +40,8 @@ namespace MVS_Camera
         {
             m_pDeviceList = new MyCamera.MV_CC_DEVICE_INFO_LIST();
             m_pOperator = new CameraOperator();
+            OpenCamera();
+         //  throw(Exception e)
         }
 
         //public override bool OpenCamera()
@@ -140,6 +142,10 @@ namespace MVS_Camera
         //}
         public override bool OpenCamera()
         {
+            if (IsOpened())
+            {
+                return true;
+            }
             int nRet;
             /*创建设备列表*/
             System.GC.Collect();
@@ -147,8 +153,9 @@ namespace MVS_Camera
             nRet = CameraOperator.EnumDevices(MyCamera.MV_GIGE_DEVICE | MyCamera.MV_USB_DEVICE, ref m_pDeviceList);
             if (0 != nRet)
             {
-                MessageBox.Show("枚举设备失败!");
-                return false;
+                throw (new Exception("枚举设备失败"));
+              //  MessageBox.Show("枚举设备失败!");
+              //  return false;
             }
 
             //在窗体列表中显示设备名
@@ -165,8 +172,9 @@ namespace MVS_Camera
                             nRet = m_pOperator.Open(ref device);
                             if (MyCamera.MV_OK != nRet)
                             {
-                                MessageBox.Show("设备打开失败!");
-                                return false;
+                            throw (new Exception("设备打开失败!"));
+                            //MessageBox.Show("设备打开失败!");
+                              //  return false;
                             }
 
                             nRet = m_pOperator.SetIntValue("GevHeartbeatTimeout", 5000);
@@ -191,8 +199,10 @@ namespace MVS_Camera
                         nRet = m_pOperator.StartGrabbing();
                         if (CameraOperator.CO_OK != nRet)
                         {
-                            MessageBox.Show("开始取流失败！");
-                            m_bIsOpen = false;
+                            throw (new Exception("开始取流失败!"));
+
+                          //  MessageBox.Show("开始取流失败！");
+                          //  m_bIsOpen = false;
                         }
                         else
                         {
@@ -204,8 +214,9 @@ namespace MVS_Camera
                     } 
                 } 
             }
-            MessageBox.Show("相机" + m_sCameraName +"打开失败!");
-            return false;
+            throw (new Exception("相机" + m_sCameraName + "打开失败!"));
+           // MessageBox.Show("相机" + m_sCameraName +"打开失败!");
+            //return false;
         }
         public override bool CloseCamera()
         {

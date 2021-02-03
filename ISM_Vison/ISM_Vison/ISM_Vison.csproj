@@ -17,9 +17,9 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\CameraD\CameraD.csproj" />
+    <ProjectReference Include="..\..\MVSHalconWindow\MVSHalconWindow.csproj" />
     <ProjectReference Include="..\..\Sequence\Sequence.csproj" />
     <ProjectReference Include="..\ISM_Vison.Core\ISM_Vison.Core.csproj" />
-    <ProjectReference Include="..\Modules\ISM_Vison.Modules.ModuleName\ISM_Vison.Modules.ModuleName.csproj" />
     <ProjectReference Include="..\Services\ISM_Vison.Services.Interfaces\ISM_Vison.Services.Interfaces.csproj" />
     <ProjectReference Include="..\Services\ISM_Vison.Services\ISM_Vison.Services.csproj" />
   </ItemGroup>

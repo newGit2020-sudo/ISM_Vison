@@ -6,7 +6,7 @@
         xmlns:core="clr-namespace:ISM_Vison.Core;assembly=ISM_Vison.Core"
         xmlns:halcon="clr-namespace:HalconDotNet;assembly=halcondotnet"
         xmlns:HAL="clr-namespace:HLHal;assembly=HLHal"
-        Title="{Binding Title}" Height="380" Width="550" Loaded="Window_Loaded" >
+        Title="{Binding Title}" Height="550" Width="800" Loaded="Window_Loaded" Closing="Window_Closing">
     <Grid>
         <DockPanel>
             <Menu  DockPanel.Dock="Top">
@@ -20,7 +20,8 @@
                 <MenuItem Header="View" ></MenuItem>
                 <MenuItem Header="About"></MenuItem>
                 <MenuItem Name="OpenCamer" Header="打开相机" Click="OpenCamer_Click"></MenuItem>
-
+                <MenuItem Name="打开相机参数设置" Header="打开相机参数设置" Click="打开相机参数设置_Click"></MenuItem>
+                <MenuItem Name="FunTest" Header="FunTest" Click="FunTest_Click"></MenuItem>
             </Menu>
             <!--<ContentControl  DockPanel.Dock="Top" Name="MenuRegion" prism:RegionManager.RegionName="MenuRegion" ></ContentControl>-->
             <!--<ContentControl  DockPanel.Dock="Top" Name="ToolRegion" prism:RegionManager.RegionName="ToolRegion" ></ContentControl>-->

@@ -1,4 +1,4 @@
-﻿using ISM_Vison.Modules.ModuleName;
+﻿
 using ISM_Vison.Services;
 using ISM_Vison.Services.Interfaces;
 using ISM_Vison.Views;
@@ -29,8 +29,7 @@ namespace ISM_Vison
 
         protected override void ConfigureModuleCatalog(IModuleCatalog moduleCatalog)
         {
-            moduleCatalog.AddModule<ModuleNameModule>();
-            moduleCatalog.AddModule<SequenceModule>();
+            moduleCatalog.AddModule<ISM_VisonModule>();
         }
     }
 }
