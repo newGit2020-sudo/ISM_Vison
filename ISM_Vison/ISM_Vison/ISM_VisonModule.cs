@@ -1,9 +1,9 @@
-﻿using ISM_Vison.Models;
+﻿using DataDb;
+using ISM_Vison.Models;
 using Prism.Ioc;
 using Prism.Modularity;
 using Prism.Regions;
 using Sequence.Views;
-using static Infrastructure.KnownRegionNames;
 namespace Sequence
 {
     public class ISM_VisonModule : IModule
@@ -22,11 +22,7 @@ namespace Sequence
 
         public void RegisterTypes(IContainerRegistry containerRegistry)
         {
-            containerRegistry.Register<IFunc_Obj, FUNC_OBJ2>("FUNC_OBJ2");
-            containerRegistry.Register<IFunc_Obj, Sequence_Fun>("Sequence_Fun");
-            VSDBContext vSDBContext = new VSDBContext();
-            containerRegistry.RegisterInstance(vSDBContext);
-
+         
         }
     }
 }

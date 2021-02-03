@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Sequence
+namespace Interface 
 {
    public interface IFunc_Obj
     {

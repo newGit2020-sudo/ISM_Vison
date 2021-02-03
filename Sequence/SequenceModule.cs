@@ -1,8 +1,7 @@
-﻿using Prism.Ioc;
+﻿using ISM_Vison.Core;
+using Prism.Ioc;
 using Prism.Modularity;
 using Prism.Regions;
-using Sequence.Views;
-using static Infrastructure.KnownRegionNames;
 namespace Sequence
 {
     public class SequenceModule : IModule
@@ -16,14 +15,15 @@ namespace Sequence
         }
         public void OnInitialized(IContainerProvider containerProvider)
         {
-            this._regionManager.RegisterViewWithRegion(ToolRegion, typeof(Views.ToolView)); 
-            this._regionManager.RegisterViewWithRegion(SequenceRegion, typeof(Views.FuncList)); 
+            this._regionManager.RegisterViewWithRegion(RegionNames.ToolRegion, typeof(Views.ToolView)); 
+            this._regionManager.RegisterViewWithRegion(RegionNames.SequenceRegion, typeof(Views.FuncList));
         }
 
         public void RegisterTypes(IContainerRegistry containerRegistry)
         {
             containerRegistry.Register<IFunc_Obj, FUNC_OBJ2>("FUNC_OBJ2");
             containerRegistry.Register<IFunc_Obj, Sequence_Fun>("Sequence_Fun");
+        
         }
     }
 }

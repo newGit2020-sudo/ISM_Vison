@@ -8,9 +8,6 @@
     <PackageReference Include="Prism.Wpf" Version="8.0.0.1909" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\UsingEventAggregator.Core\UsingEventAggregator.Core.csproj" />
-  </ItemGroup>
-  <ItemGroup>
     <Reference Include="halcondotnet">
       <HintPath>..\..\..\..\..\..\Program Files\MVTec\HALCON-17.12-Progress\bin\dotnet35\halcondotnet.dll</HintPath>
     </Reference>

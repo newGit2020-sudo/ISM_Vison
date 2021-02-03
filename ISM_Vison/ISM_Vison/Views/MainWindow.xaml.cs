@@ -1,9 +1,9 @@
 ﻿
 using CameraD;
-using CommonServiceLocator;
 using HalconDotNet;
+using Interface;
 using ISM_Vison.Models;
-using ISM_Vison.Services;
+
 using ISM_Vison.ViewModels;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
 using Newtonsoft.Json;
@@ -82,11 +82,6 @@ namespace ISM_Vison.Views
             dddd2.Name = "dddd2";
             IFunc_Obj rrrr2 = _Container.Resolve<IFunc_Obj>("FUNC_OBJ2");
             rrrr2.Name = "rrrr2";
-
-            IFunc_Obj dddd = _Container.Resolve<IFunc_Obj>("FUNC_OBJ");
-            dddd.Name = "dddd";
-            IFunc_Obj rrrr = _Container.Resolve<IFunc_Obj>("FUNC_OBJ");
-            rrrr.Name = "rrrr";
         }
 
         private void 打开相机参数设置_Click(object sender, RoutedEventArgs e)
