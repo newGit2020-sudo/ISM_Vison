@@ -29,23 +29,19 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Update="Sequence\Views\FuncObj.xaml.cs">
+    <Compile Update="Views\FuncObj.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Sequence\Views\ToolView.xaml.cs">
+    <Compile Update="Views\ToolView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Page Update="Sequence\Views\FuncList.xaml">
+    <Page Update="Views\FuncObj.xaml">
       <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Sequence\Views\FuncObj.xaml">
-      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="Sequence\Views\ToolView.xaml">
+    <Page Update="Views\ToolView.xaml">
       <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
       <SubType>Designer</SubType>
     </Page>

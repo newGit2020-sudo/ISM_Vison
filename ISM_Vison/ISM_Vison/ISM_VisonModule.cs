@@ -1,9 +1,11 @@
 ﻿using DataDb;
+using ISM_Vison.Core;
 using ISM_Vison.Models;
+using ISM_Vison.Views;
 using Prism.Ioc;
 using Prism.Modularity;
 using Prism.Regions;
-using Sequence.Views;
+
 namespace Sequence
 {
     public class ISM_VisonModule : IModule
@@ -17,7 +19,7 @@ namespace Sequence
         }
         public void OnInitialized(IContainerProvider containerProvider)
         {
-
+            this._regionViewRegistry.RegisterViewWithRegion(RegionNames.ToolRegion, typeof(ToolView));
         }
 
         public void RegisterTypes(IContainerRegistry containerRegistry)

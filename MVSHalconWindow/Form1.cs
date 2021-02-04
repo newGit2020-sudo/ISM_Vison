@@ -89,7 +89,7 @@ namespace MVSHalconWindow
                     IntPtr buffer = Marshal.UnsafeAddrOfPinnedArrayElement(device.SpecialInfo.stGigEInfo, 0);
                     MyCamera.MV_GIGE_DEVICE_INFO gigeInfo = (MyCamera.MV_GIGE_DEVICE_INFO)Marshal.PtrToStructure(buffer, typeof(MyCamera.MV_GIGE_DEVICE_INFO));
                     if (gigeInfo.chUserDefinedName != "")
-                    {
+                    {   
                         cbDeviceList.Items.Add("GigE: " + gigeInfo.chUserDefinedName + " (" + gigeInfo.chSerialNumber + ")");
                     }
                     else
@@ -644,22 +644,25 @@ namespace MVSHalconWindow
             SetCtrlWhenStopGrab();
         }
 
-        public float Exposure { get; set; }
-        public float Gain { get; set; }
+       public CameraInfo cameraInfo = new CameraInfo();
+        public List<CameraInfo> ListcameraInfos = new List<CameraInfo>(4);
         private void bnGetParam_Click(object sender, EventArgs e)
         {
+            
+
             MyCamera.MVCC_FLOATVALUE stParam = new MyCamera.MVCC_FLOATVALUE();
-            int nRet = m_pMyCamera.MV_CC_GetFloatValue_NET("ExposureTime", ref stParam);
+            int nRet  = m_pMyCamera.MV_CC_GetExposureTime_NET(ref stParam);
+         // int nRet = m_pMyCamera.MV_CC_GetFloatValue_NET("ExposureTime", ref stParam);
             if (MyCamera.MV_OK == nRet)
             {
-                Exposure = stParam.fCurValue;
+               cameraInfo.ExposureTime = stParam.fCurValue.ToString();
                 tbExposure.Text = stParam.fCurValue.ToString("F1");
             }
 
             nRet = m_pMyCamera.MV_CC_GetFloatValue_NET("Gain", ref stParam);
             if (MyCamera.MV_OK == nRet)
             {
-                Gain = stParam.fCurValue;
+               // Gain = stParam.fCurValue;
                 tbGain.Text = stParam.fCurValue.ToString("F1");
             }
 
@@ -669,8 +672,8 @@ namespace MVSHalconWindow
                 //显示帧率
                 //tbFrameRate.Text = stParam.fCurValue.ToString("F1");
             }
-        }
 
+        }
         private void bnSetParam_Click(object sender, EventArgs e)
         {
             try

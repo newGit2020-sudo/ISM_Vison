@@ -15,7 +15,7 @@ namespace ISM_Vison.Models
     public class Camera
     {
         public int CameraId { get; set; }
-        public int SerialNumber{ get; set; }
+        public string SerialNumber { get; set; }
         public string ClassType { get; set; }
         public string CameraName { get; set; }
         public string ExposureTime { get; set; }

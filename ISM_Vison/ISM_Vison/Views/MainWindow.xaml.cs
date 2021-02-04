@@ -1,5 +1,6 @@
 ﻿
 using CameraD;
+using DataDb;
 using HalconDotNet;
 using Interface;
 using ISM_Vison.Models;
@@ -20,14 +21,12 @@ namespace ISM_Vison.Views
     public partial class MainWindow : Window
     {
         IContainerProvider _Container;
-        IContainerRegistry _ContainerRegistry;
         MainWindowViewModel _MainWindowViewModel;
-        public MainWindow(IContainerProvider Container , MainWindowViewModel mainWindowViewModel)
+        public MainWindow(IContainerProvider Container )
         {
             InitializeComponent();
             this._Container = Container;
-            this._MainWindowViewModel = mainWindowViewModel;
-            //this._ContainerRegistry = ContainerRegistry;
+           // this._MainWindowViewModel = mainWindowViewModel;
         }
         public class Product
         {
@@ -39,35 +38,45 @@ namespace ISM_Vison.Views
         }
         private void OpenCamer_Click(object sender, RoutedEventArgs e)
         {
-            for (int i = 0; i < Cameras.Length; i++)
+
+            ServeDB serveDB = ServeDB.GetInstance();
+            //for (int i = 0; i < Cameras.Length; i++)
+            //{
+            //    try
+            //    {
+            //        Cameras[i] = new MVS_Camera.HaiKangCamera(Camera0, "c2");
+            //        Cameras[i].Start();
+            //    }
+            //    catch (Exception ex)
+            //    {
+            //        MessageBox.Show(ex.Message);
+            //    }
+
+            //}
+
+            序列表.ItemsSource = serveDB.Sequences;
+            序列表.DisplayMemberPath = "Name";
+        }
+        public CameraBase[] Cameras=new CameraBase[4];
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            //Cameras[1] = new MVS_Camera.HaiKangCamera(Camera1, "c2");
+            //Cameras[2] = new MVS_Camera.HaiKangCamera(Camera2, "c3");
+            //Cameras[3] = new MVS_Camera.HaiKangCamera(Camera3, "c4");
+            for (int i = 0; i < 1; i++)
             {
                 try
                 {
-                    Cameras[i] = new MVS_Camera.HaiKangCamera(Camera0, "c2");
-                    Cameras[i].Start();
+                    Cameras[0] = new MVS_Camera.HaiKangCamera(Camera0, "c2");
+                    if (Cameras[i].OpenCamera())
+                        Cameras[i].Start();
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message);
                 }
+
             }
-        }
-        public CameraBase[] Cameras=new CameraBase[4];
-        private void Window_Loaded(object sender, RoutedEventArgs e)
-        {
-
-            //Cameras[0] = new MVS_Camera.HaiKangCamera(Camera0, "c1");
-            //Cameras[1] = new MVS_Camera.HaiKangCamera(Camera1, "c2");
-            //Cameras[2] = new MVS_Camera.HaiKangCamera(Camera2, "c3");
-            //Cameras[3] = new MVS_Camera.HaiKangCamera(Camera3, "c4");
-
-            //for (int i = 0; i < Cameras.Length; i++)
-            //{
-            //    if (Cameras[i].OpenCamera())
-            //    {
-            //        Cameras[i].Start();
-            //    } 
-            //}
 
         }
 
@@ -85,10 +94,10 @@ namespace ISM_Vison.Views
         }
 
         private void 打开相机参数设置_Click(object sender, RoutedEventArgs e)
-        {
+        { 
             MVSHalconWindow.Form1 form1 = new MVSHalconWindow.Form1();
             form1.ShowDialog();
-            float 曝光时间 = form1.Exposure;
+           // float 曝光时间 = form1.Exposure;
         }
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)

@@ -4,9 +4,12 @@ using Interface;
 using ISM_Vison.Models;
 using ISM_Vison.Sequence;
 using ISM_Vison.Views;
+using Microsoft.EntityFrameworkCore;
 using Prism.Ioc;
 using Prism.Modularity;
 using Sequence;
+using System.Collections.ObjectModel;
+using System.Linq;
 using System.Windows;
 
 namespace ISM_Vison
@@ -28,22 +31,26 @@ namespace ISM_Vison
         {
             containerRegistry.Register<IFunc_Obj, FUNC_OBJ2>("FUNC_OBJ2");
             containerRegistry.Register<IFunc_Obj, Sequence_Fun>("Sequence_Fun");
+             Camera camera = new Camera();
+            camera.CameraName = "hello4";
+            containerRegistry.RegisterInstance(typeof(Camera),camera, "jjj");
+            VSDBContext db = new VSDBContext();
 
-            VSDBContext vSDBContext = new VSDBContext();
-            containerRegistry.RegisterInstance(vSDBContext);
-            //Camera camera = new Camera();
-            //camera.SerialNumber = 1212121;
-            //camera.CameraName = "这是测试";
-            //ServeDB serveDB = new ServeDB();
-            //serveDB.CameraConfig.Add(camera);
-            //serveDB.SaveChanges();
-            //vSDBContext.Add(camera);
-            //vSDBContext.SaveChanges();
+            //var numbersQuery = db.Cameras.OrderBy(b => b.CameraId);
+            //var queryAllCustomers = from cust in db.Cameras
+            //                        select cust;
+            //ObservableCollection<Camera> cameras = new ObservableCollection<Camera>();
+           
+            foreach (var item in db.Cameras)
+            {
+              //  cameras.Add(item);
+            }
+            ObservableCollection<Camera> camerascccc = db.Cameras.Local.ToObservableCollection();
         }
 
         protected override void ConfigureModuleCatalog(IModuleCatalog moduleCatalog)
         {
-           // moduleCatalog.AddModule<ISM_VisonModule>(); 
+            moduleCatalog.AddModule<ISM_VisonModule>();  
         }
     }
 }
