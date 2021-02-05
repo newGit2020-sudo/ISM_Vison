@@ -11,11 +11,13 @@ namespace ISM_Vison.ViewModels
 {
     public class MainWindowViewModel : BindableBase
     {
-        //  public ServeDB serveDB { get; set; } = ServeDB.GetInstance();
+        private DBServer _serveDB;
         public MainWindow _mainWindow;
         IContainerProvider _Container;
-      public  ObservableCollection<ISM_Vison.Models.Sequence> Sequences { get; set; } = ServeDB.GetInstance().Sequences;
+        // public  ObservableCollection<ISM_Vison.Models.Sequence> Sequences { get; set; } = DBServer.GetInstance().Sequences;
+         public  ObservableCollection<ISM_Vison.Models.Sequence> Sequences { get; set; } 
         public DelegateCommand<string> NavigateCommand { get; private set; }
+        public DelegateCommand<string> TestCommand { get; private set; }
         private readonly IRegionManager _regionManager;
         private readonly IRegionViewRegistry _regionViewRegistry;
 
@@ -31,11 +33,20 @@ namespace ISM_Vison.ViewModels
             this._regionViewRegistry = regionViewRegistry;
             this._regionManager = regionManager;
             this._Container = Container;
+            _serveDB = _Container.Resolve<DBServer>();
+            Sequences = _serveDB.Sequences;
             this.NavigateCommand = new DelegateCommand<string>(this.Navigate);
+            this.TestCommand = new DelegateCommand<string>(this._TestCommand);
         }
         private void Navigate(string viewName)
         {
-
+        }
+        private void _TestCommand(string viewName)
+        {
+            foreach (var item in Sequences)
+            {
+                item.Name += 3;
+            } 
         }
     }
 }

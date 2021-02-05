@@ -39,7 +39,8 @@ namespace ISM_Vison.Views
         private void OpenCamer_Click(object sender, RoutedEventArgs e)
         {
 
-            ServeDB serveDB = ServeDB.GetInstance();
+            //DBServer serveDB = DBServer.GetInstance();
+            DBServer serveDB = _Container.Resolve<DBServer>();
             //for (int i = 0; i < Cameras.Length; i++)
             //{
             //    try

@@ -1,19 +1,33 @@
-﻿using Interface;
+﻿using DataDb;
+using Interface;
+using Prism.Ioc;
+using Prism.Mvvm;
 using Sequence;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace ISM_Vison.Sequence
 {
-    public class Sequence_Fun : IFunc_Obj
+    public class Sequence_Fun :BindableBase, IFunc_Obj 
     {
-        public string Name { get; set; }
+        public Models.Sequence Sequence { get; set; } = new Models.Sequence();
+        private DBServer _serveDB;
+        private IContainerProvider _Container;
+        public string Name { get { return Sequence.Name; } set { Sequence.Name=value; } } //"Sequence 01";
         public Type type { get => this.GetType(); }
-        public List<IFunc_Obj> Fun_obj_list { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public ObservableCollection<IFunc_Obj> Fun_obj_list { get; set ; }
 
+        public Sequence_Fun(IContainerProvider Container)
+        {
+            this._Container = Container;
+            this._serveDB = _Container.Resolve<DBServer>();
+
+        }
         public void Init()
         {
             this.GetType();
@@ -30,7 +44,19 @@ namespace ISM_Vison.Sequence
 
         public int Save()
         {
-            throw new NotImplementedException();
+            ObservableCollection<ISM_Vison.Models.Sequence> Sequences = _serveDB.Sequences;
+            ISM_Vison.Models.Sequence kkkk = _serveDB.GetSequence(Name);
+            if (kkkk==null)
+            {
+                _serveDB.db.Add(Sequence);
+                _serveDB.SaveChanges();
+            }
+            else
+            {
+
+            }
+            return 0;
+           // throw new NotImplementedException();
         }
     }
 }

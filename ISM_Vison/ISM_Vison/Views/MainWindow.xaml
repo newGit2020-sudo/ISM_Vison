@@ -22,6 +22,7 @@
                 <MenuItem Name="OpenCamer" Header="打开相机" Click="OpenCamer_Click"></MenuItem>
                 <MenuItem Name="打开相机参数设置" Header="打开相机参数设置" Click="打开相机参数设置_Click"></MenuItem>
                 <MenuItem Name="FunTest" Header="FunTest" Click="FunTest_Click"></MenuItem>
+                <MenuItem  Header="ViewModelTest" Command="{Binding Path=TestCommand}"></MenuItem>
             </Menu>
 
             <ToolBar DockPanel.Dock="Top" Name="ToolRegion" prism:RegionManager.RegionName="ToolRegion" ></ToolBar>

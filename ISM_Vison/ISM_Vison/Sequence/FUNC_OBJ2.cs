@@ -2,6 +2,7 @@
 using Sequence;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,7 +14,7 @@ namespace ISM_Vison.Sequence
         public string Name { get; set; }
         public Type type { get =>typeof(FUNC_OBJ2);  }
        
-        public List<IFunc_Obj> Fun_obj_list { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public ObservableCollection<IFunc_Obj> Fun_obj_list { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
 
         public void Init()
         {
