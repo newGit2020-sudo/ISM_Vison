@@ -7,6 +7,7 @@ using Prism.Mvvm;
 using Prism.Regions;
 using System.Collections.ObjectModel;
 using Infrastructure.Interface;
+using ISM_Vison.Sequence;
 
 namespace ISM_Vison.ViewModels
 {
@@ -38,6 +39,13 @@ namespace ISM_Vison.ViewModels
             _serveDB = _Container.Resolve<DBServer>();
             TopFunc_Obj = _Container.Resolve<IFunc_Obj>("SequenceFunc_Obj");
             Sequences = _serveDB.Sequences;
+            foreach (var item in Sequences)
+            {
+                SequenceFunc_Obj _sequenceFunc_Obj = _Container.Resolve<IFunc_Obj>("SequenceFunc_Obj") as SequenceFunc_Obj;
+                _sequenceFunc_Obj.Sequence = item;
+                _sequenceFunc_Obj.Load(item.SequenceId);
+                TopFunc_Obj.Children.Add(_sequenceFunc_Obj);
+            }
             this.NavigateCommand = new DelegateCommand<string>(this.Navigate);
             this.TestCommand = new DelegateCommand<string>(this._TestCommand);
         }
@@ -48,7 +56,9 @@ namespace ISM_Vison.ViewModels
         {
             foreach (var item in Sequences)
             {
-                item.Name += 3;
+                SequenceFunc_Obj _sequenceFunc_Obj = _Container.Resolve<IFunc_Obj>("SequenceFunc_Obj") as SequenceFunc_Obj;
+                _sequenceFunc_Obj.Sequence = item;
+                _sequenceFunc_Obj.Load(item.SequenceId);
             } 
         }
     }

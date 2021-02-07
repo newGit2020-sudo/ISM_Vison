@@ -29,7 +29,7 @@
             <StatusBar DockPanel.Dock="Bottom">
                 <TextBlock Text="statusBar"></TextBlock>
             </StatusBar>
-            <ListBox x:Name="序列表" DockPanel.Dock="Left"  ItemsSource="{Binding Sequences}" DisplayMemberPath="Name"  Width="120" ></ListBox>
+            <ListBox x:Name="序列表" DockPanel.Dock="Left"  ItemsSource="{Binding Path= TopFunc_Obj.Children.Sequences}" DisplayMemberPath="Name"  Width="120" ></ListBox>
             <StackPanel  Orientation="Horizontal"  DockPanel.Dock="Right">
                 <ListBox   Width="70" ></ListBox>
                 <DataGrid  Width="120"></DataGrid>

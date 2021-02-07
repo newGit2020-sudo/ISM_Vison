@@ -27,7 +27,7 @@ namespace ISM_Vison.Views
         {
             InitializeComponent();
             this._Container = Container;
-           // this._MainWindowViewModel = mainWindowViewModel;
+          
         }
         public class Product
         {
@@ -56,8 +56,8 @@ namespace ISM_Vison.Views
 
             //}
 
-            序列表.ItemsSource = serveDB.Sequences;
-            序列表.DisplayMemberPath = "Name";
+            //序列表.ItemsSource = serveDB.Sequences;
+            //序列表.DisplayMemberPath = "Name";
         }
         public CameraBase[] Cameras=new CameraBase[4];
         private void Window_Loaded(object sender, RoutedEventArgs e)
@@ -84,15 +84,15 @@ namespace ISM_Vison.Views
 
         private void FunTest_Click(object sender, RoutedEventArgs e)
         {
-
+            this.DataContext = this.DataContext;
             Product product = new Product();
             string output = JsonConvert.SerializeObject(product);
             Product deserializedProduct = JsonConvert.DeserializeObject<Product>(output);
 
-            IFunc_Obj dddd2 = _Container.Resolve<IFunc_Obj>("FUNC_OBJ2");
-            dddd2.Name = "dddd2";
-            IFunc_Obj rrrr2 = _Container.Resolve<IFunc_Obj>("FUNC_OBJ2");
-            rrrr2.Name = "rrrr2";
+            //IFunc_Obj dddd2 = _Container.Resolve<IFunc_Obj>("FUNC_OBJ2");
+            //dddd2.Name = "dddd2";
+            //IFunc_Obj rrrr2 = _Container.Resolve<IFunc_Obj>("FUNC_OBJ2");
+            //rrrr2.Name = "rrrr2";
         }
 
         private void 打开相机参数设置_Click(object sender, RoutedEventArgs e)

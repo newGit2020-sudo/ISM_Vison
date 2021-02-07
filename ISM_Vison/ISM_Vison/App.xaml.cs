@@ -12,6 +12,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Windows;
 using Infrastructure.Interface;
+using CommonServiceLocator;
 
 namespace ISM_Vison
 {
@@ -22,15 +23,14 @@ namespace ISM_Vison
     {
         protected override Window CreateShell()
         {
-            return Container.Resolve<MainWindow>();
-            //this._regionViewRegistry = ServiceLocator.Current.GetInstance<IRegionViewRegistry>();
-            //this._regionManager = ServiceLocator.Current.GetInstance<IRegionManager>();
+            return Container.Resolve<MainWindow>(); 
         }
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
-            containerRegistry.Register<IFunc_Obj, FUNC_OBJ2>("FUNC_OBJ2");
             containerRegistry.Register<IFunc_Obj, SequenceFunc_Obj>("SequenceFunc_Obj");
+           //单实例 SequenceFunc_Obj temp = ServiceLocator.Current.GetInstance<SequenceFunc_Obj>();
+
             VSDBContext db = new VSDBContext();
             DBServer dBServer = DBServer.GetInstance();
             containerRegistry.RegisterInstance(typeof(DBServer), dBServer);
@@ -38,7 +38,9 @@ namespace ISM_Vison
 
         protected override void ConfigureModuleCatalog(IModuleCatalog moduleCatalog)
         {
-            moduleCatalog.AddModule<ISM_VisonModule>();  
+            moduleCatalog.AddModule<ISM_VisonModule>();
+            moduleCatalog.AddModule<Infrastructure.InfrastructureModule>();
+
         }
     }
 }

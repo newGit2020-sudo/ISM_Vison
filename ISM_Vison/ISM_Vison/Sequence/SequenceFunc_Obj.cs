@@ -21,7 +21,7 @@ namespace ISM_Vison.Sequence
         private IContainerProvider _Container;
         public string Name { get { return Sequence.Name; } set { Sequence.Name=value;  } } //"Sequence 01";
         public Type type { get => this.GetType(); }
-        public ObservableCollection<IFunc_Obj> children { get; set ; }
+        public ObservableCollection<IFunc_Obj> Children { get; set; } = new ObservableCollection<IFunc_Obj>();
         public IFunc_Obj parent { get; set; }
 
         public SequenceFunc_Obj(IContainerProvider Container)
@@ -34,9 +34,16 @@ namespace ISM_Vison.Sequence
         {
             this.GetType();
         }
-        public int Load()
+        public int Load(int Id)
         {
-            throw new NotImplementedException();
+            if (Children!=null)
+            {
+                foreach (var item in Children)
+                {
+                    item.Load(Id);
+                }
+            }
+            return 0;
         }
 
         public bool Run()
