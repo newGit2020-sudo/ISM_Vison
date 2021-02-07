@@ -1,4 +1,5 @@
-﻿using Interface;
+﻿
+using Infrastructure.Interface;
 using Sequence;
 using System;
 using System.Collections.Generic;
@@ -14,7 +15,8 @@ namespace ISM_Vison.Sequence
         public string Name { get; set; }
         public Type type { get =>typeof(FUNC_OBJ2);  }
        
-        public ObservableCollection<IFunc_Obj> Fun_obj_list { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public ObservableCollection<IFunc_Obj> children { get; set ; }
+        public IFunc_Obj parent { get; set; }
 
         public void Init()
         {

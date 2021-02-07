@@ -1,8 +1,8 @@
 ﻿
 using CameraD;
-using DataDb;
+using ISM_Vison.Services;
 using HalconDotNet;
-using Interface;
+
 using ISM_Vison.Models;
 
 using ISM_Vison.ViewModels;
@@ -12,6 +12,7 @@ using Prism.Ioc;
 using Sequence;
 using System;
 using System.Windows;
+using Infrastructure.Interface;
 
 namespace ISM_Vison.Views
 {

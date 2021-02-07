@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Text;
 
-namespace Interface 
+namespace Infrastructure.Interface 
 {
-   public interface IFunc_Obj
+    public interface IFunc_Obj
     {
-        ObservableCollection<IFunc_Obj> Fun_obj_list { get; set; }
+        ObservableCollection<IFunc_Obj> children { get; set; } 
         string Name { get; set; }
+        IFunc_Obj parent {get;set;}
         Type type { get;  }
         int Load();
         int Save();

@@ -1,5 +1,5 @@
-﻿using DataDb;
-using Interface;
+﻿using ISM_Vison.Services;
+
 using Prism.Ioc;
 using Prism.Mvvm;
 using Sequence;
@@ -9,20 +9,22 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using Infrastructure.Models;
+using Infrastructure.Interface;
 
 namespace ISM_Vison.Sequence
 {
-    public class Sequence_Fun :BindableBase, IFunc_Obj 
+    public class SequenceFunc_Obj : BindableBase, IFunc_Obj
     {
-        public Models.Sequence Sequence { get; set; } = new Models.Sequence();
+        public Infrastructure.Models.Sequence Sequence { get; set; } = new Infrastructure.Models.Sequence();
         private DBServer _serveDB;
         private IContainerProvider _Container;
-        public string Name { get { return Sequence.Name; } set { Sequence.Name=value; } } //"Sequence 01";
+        public string Name { get { return Sequence.Name; } set { Sequence.Name=value;  } } //"Sequence 01";
         public Type type { get => this.GetType(); }
-        public ObservableCollection<IFunc_Obj> Fun_obj_list { get; set ; }
+        public ObservableCollection<IFunc_Obj> children { get; set ; }
+        public IFunc_Obj parent { get; set; }
 
-        public Sequence_Fun(IContainerProvider Container)
+        public SequenceFunc_Obj(IContainerProvider Container)
         {
             this._Container = Container;
             this._serveDB = _Container.Resolve<DBServer>();
@@ -44,8 +46,8 @@ namespace ISM_Vison.Sequence
 
         public int Save()
         {
-            ObservableCollection<ISM_Vison.Models.Sequence> Sequences = _serveDB.Sequences;
-            ISM_Vison.Models.Sequence kkkk = _serveDB.GetSequence(Name);
+            ObservableCollection<Infrastructure.Models.Sequence> Sequences = _serveDB.Sequences;
+            Infrastructure.Models.Sequence kkkk = _serveDB.GetSequence(Name);
             if (kkkk==null)
             {
                 _serveDB.db.Add(Sequence);
@@ -56,7 +58,6 @@ namespace ISM_Vison.Sequence
 
             }
             return 0;
-           // throw new NotImplementedException();
         }
     }
 }

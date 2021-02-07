@@ -1,6 +1,6 @@
 ﻿
-using DataDb;
-using Interface;
+using ISM_Vison.Services;
+
 using ISM_Vison.Models;
 using ISM_Vison.Sequence;
 using ISM_Vison.Views;
@@ -11,6 +11,7 @@ using Sequence;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Windows;
+using Infrastructure.Interface;
 
 namespace ISM_Vison
 {
@@ -29,7 +30,8 @@ namespace ISM_Vison
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
             containerRegistry.Register<IFunc_Obj, FUNC_OBJ2>("FUNC_OBJ2");
-            containerRegistry.Register<IFunc_Obj, Sequence_Fun>("Sequence_Fun");
+            containerRegistry.Register<IFunc_Obj, SequenceFunc_Obj>("SequenceFunc_Obj");
+            VSDBContext db = new VSDBContext();
             DBServer dBServer = DBServer.GetInstance();
             containerRegistry.RegisterInstance(typeof(DBServer), dBServer);
         }

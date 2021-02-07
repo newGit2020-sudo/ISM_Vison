@@ -12,7 +12,7 @@ namespace ISM_Vison.Migrations
                 {
                     CameraId = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    SerialNumber = table.Column<string>(type: "TEXT", nullable: true),
+                    SerialNumber = table.Column<int>(type: "INTEGER", nullable: false),
                     ClassType = table.Column<string>(type: "TEXT", nullable: true),
                     CameraName = table.Column<string>(type: "TEXT", nullable: true),
                     ExposureTime = table.Column<string>(type: "TEXT", nullable: true),

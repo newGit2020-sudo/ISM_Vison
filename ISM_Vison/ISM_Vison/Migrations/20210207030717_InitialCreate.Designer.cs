@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ISM_Vison.Migrations
 {
     [DbContext(typeof(VSDBContext))]
-    [Migration("20210203091617_InitialCreate")]
+    [Migration("20210207030717_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -17,7 +17,7 @@ namespace ISM_Vison.Migrations
             modelBuilder
                 .HasAnnotation("ProductVersion", "5.0.2");
 
-            modelBuilder.Entity("ISM_Vison.Models.Camera", b =>
+            modelBuilder.Entity("Infrastructure.Models.Camera", b =>
                 {
                     b.Property<int>("CameraId")
                         .ValueGeneratedOnAdd()
@@ -50,15 +50,15 @@ namespace ISM_Vison.Migrations
                     b.Property<string>("Field3")
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("SerialNumber")
-                        .HasColumnType("TEXT");
+                    b.Property<int>("SerialNumber")
+                        .HasColumnType("INTEGER");
 
                     b.HasKey("CameraId");
 
                     b.ToTable("Cameras");
                 });
 
-            modelBuilder.Entity("ISM_Vison.Models.IFunc_ObjTypeString", b =>
+            modelBuilder.Entity("Infrastructure.Models.IFunc_ObjTypeString", b =>
                 {
                     b.Property<int>("IFunc_ObjTypeStringId")
                         .ValueGeneratedOnAdd()
@@ -80,7 +80,7 @@ namespace ISM_Vison.Migrations
                     b.ToTable("IFunc_ObjTypeStrings");
                 });
 
-            modelBuilder.Entity("ISM_Vison.Models.Sequence", b =>
+            modelBuilder.Entity("Infrastructure.Models.Sequence", b =>
                 {
                     b.Property<int>("SequenceId")
                         .ValueGeneratedOnAdd()
@@ -112,16 +112,16 @@ namespace ISM_Vison.Migrations
                     b.ToTable("Sequences");
                 });
 
-            modelBuilder.Entity("ISM_Vison.Models.IFunc_ObjTypeString", b =>
+            modelBuilder.Entity("Infrastructure.Models.IFunc_ObjTypeString", b =>
                 {
-                    b.HasOne("ISM_Vison.Models.Sequence", null)
+                    b.HasOne("Infrastructure.Models.Sequence", null)
                         .WithMany("ClassTypeStrings")
                         .HasForeignKey("SequenceId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("ISM_Vison.Models.Sequence", b =>
+            modelBuilder.Entity("Infrastructure.Models.Sequence", b =>
                 {
                     b.Navigation("ClassTypeStrings");
                 });

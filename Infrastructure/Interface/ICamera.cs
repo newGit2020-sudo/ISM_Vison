@@ -3,9 +3,9 @@ using Prism.Ioc;
 using Prism.Modularity;
 using Prism.Regions;
 
-namespace Infrastructure
+namespace Infrastructure.Interface
 {
-    interface ICamera
+    public interface ICamera
     {
     }
 }

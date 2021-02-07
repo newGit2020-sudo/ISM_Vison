@@ -17,6 +17,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\CameraD\CameraD.csproj" />
+    <ProjectReference Include="..\..\Infrastructure\Infrastructure.csproj" />
     <ProjectReference Include="..\..\MVSHalconWindow\MVSHalconWindow.csproj" />
     <ProjectReference Include="..\ISM_Vison.Core\ISM_Vison.Core.csproj" />
   </ItemGroup>
