@@ -1,25 +1,18 @@
-﻿using ISM_Vison.Services;
-
+﻿using Infrastructure.Interface;
+using ISM_Vison.Services;
 using Prism.Ioc;
 using Prism.Mvvm;
-using Sequence;
 using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Infrastructure.Models;
-using Infrastructure.Interface;
 
 namespace ISM_Vison.Sequence
 {
-    public class SequenceFunc_Obj : BindableBase, IFunc_Obj
+    public class SequenceFunc_Obj : BindableBase, IFunc_Obj, ISequenceFunc_Obj
     {
-        public Infrastructure.Models.Sequence Sequence { get; set; } = new Infrastructure.Models.Sequence();
+        public Infrastructure.Models.Sequence sequence { get; set; } = new Infrastructure.Models.Sequence();
         private DBServer _serveDB;
         private IContainerProvider _Container;
-        public string Name { get { return Sequence.Name; } set { Sequence.Name=value;  } } //"Sequence 01";
+        public string Name { get { return sequence.Name; } set { sequence.Name=value;  } } //"Sequence 01";
         public Type type { get => this.GetType(); }
         public ObservableCollection<IFunc_Obj> Children { get; set; } = new ObservableCollection<IFunc_Obj>();
         public IFunc_Obj parent { get; set; }
@@ -34,15 +27,14 @@ namespace ISM_Vison.Sequence
         {
             this.GetType();
         }
-        public int Load(int Id)
+        public int Load()
         {
-            if (Children!=null)
-            {
-                foreach (var item in Children)
-                {
-                    item.Load(Id);
-                }
-            }
+            //if (Children!=null)
+            //{
+            //    foreach (var item in Children)
+            //    {
+            //    }
+            //}
             return 0;
         }
 
@@ -54,10 +46,10 @@ namespace ISM_Vison.Sequence
         public int Save()
         {
             ObservableCollection<Infrastructure.Models.Sequence> Sequences = _serveDB.Sequences;
-            Infrastructure.Models.Sequence kkkk = _serveDB.GetSequence(Name);
-            if (kkkk==null)
+            Infrastructure.Models.Sequence tmep = _serveDB.GetSequence(Name);
+            if (tmep==null)
             {
-                _serveDB.db.Add(Sequence);
+                _serveDB.db.Add(sequence);
                 _serveDB.SaveChanges();
             }
             else

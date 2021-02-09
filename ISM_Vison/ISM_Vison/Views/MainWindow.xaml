@@ -23,15 +23,32 @@
                 <MenuItem Name="打开相机参数设置" Header="打开相机参数设置" Click="打开相机参数设置_Click"></MenuItem>
                 <MenuItem Name="FunTest" Header="FunTest" Click="FunTest_Click"></MenuItem>
                 <MenuItem  Header="ViewModelTest" Command="{Binding Path=TestCommand}"></MenuItem>
+                <MenuItem  Header="{Binding test}" Command="{Binding Path=NavigateCommand}"></MenuItem>
             </Menu>
 
             <ToolBar DockPanel.Dock="Top" Name="ToolRegion" prism:RegionManager.RegionName="ToolRegion" ></ToolBar>
             <StatusBar DockPanel.Dock="Bottom">
                 <TextBlock Text="statusBar"></TextBlock>
             </StatusBar>
-            <ListBox x:Name="序列表" DockPanel.Dock="Left"  ItemsSource="{Binding Path= TopFunc_Obj.Children.Sequences}" DisplayMemberPath="Name"  Width="120" ></ListBox>
+            <ListBox x:Name="序列表" DockPanel.Dock="Left"  ItemsSource="{Binding Path=TopFunc_Obj.Children}" DisplayMemberPath="Name"  Width="120" ></ListBox>
             <StackPanel  Orientation="Horizontal"  DockPanel.Dock="Right">
-                <ListBox   Width="70" ></ListBox>
+                <ListBox  x:Name="序列"  Width="70" 
+                  DataContext="{Binding ElementName=序列表,Path=SelectedItem,Mode=OneWay}"
+                  ItemsSource="{Binding Path=Children, Mode=OneWay}" 
+                          >
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <Grid Width="225"  Height="126" FocusVisualStyle="{x:Null}">
+                                <TextBlock 
+					x:Name="sortIndex"
+					FontFamily="微软雅黑" FontSize="18" Foreground="Black"
+					HorizontalAlignment="Left" VerticalAlignment="Top"
+					Text="{Binding Path=Name, RelativeSource={RelativeSource Mode=FindAncestor,AncestorLevel=1,AncestorType={x:Type ListBox}}}" />
+                            </Grid>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+
+                </ListBox>
                 <DataGrid  Width="120"></DataGrid>
             </StackPanel>
             <Grid >

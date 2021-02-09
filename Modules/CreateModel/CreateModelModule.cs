@@ -1,32 +1,26 @@
-﻿using ISM_Vison.Services;
-using ISM_Vison.Core;
-using ISM_Vison.Models;
-using ISM_Vison.Views;
+﻿using Infrastructure.Interface;
+using ISM_Vison.Core.Mvvm;
 using Prism.Ioc;
 using Prism.Modularity;
 using Prism.Regions;
-using ISM_Vison.Sequence;
 
-namespace ISM_Vison
+namespace CreateModel
 {
-    public class ISM_VisonModule : IModule
+    public class CreateModelModule : ViewModelBase
     {
         private readonly IRegionManager _regionManager;
         private readonly IRegionViewRegistry _regionViewRegistry;
-        public ISM_VisonModule(IRegionViewRegistry regionViewRegistry, IRegionManager regionManager)
+        public CreateModelModule(IRegionViewRegistry regionViewRegistry, IRegionManager regionManager)
         {
             this._regionViewRegistry = regionViewRegistry;
             this._regionManager = regionManager;
         }
         public void OnInitialized(IContainerProvider containerProvider)
         {
-            this._regionViewRegistry.RegisterViewWithRegion(RegionNames.ToolRegion, typeof(ToolView));
-        
         }
-
         public void RegisterTypes(IContainerRegistry containerRegistry)
         {
-           
+            containerRegistry.RegisterSingleton<IFunc_Obj, ViewModels.MainWindowlViewModel>();
         }
     }
 }

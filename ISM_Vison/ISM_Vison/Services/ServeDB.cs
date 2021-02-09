@@ -67,7 +67,7 @@ namespace ISM_Vison.Services
         public Infrastructure.Models.Camera GetCamera(String Name)
         {
             var qurey = from b in db.Cameras
-                        where b.CameraName == Name
+                        where b.Name == Name
                         select b;
             if (qurey.Count() == 1)
             {

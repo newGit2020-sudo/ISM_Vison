@@ -12,9 +12,8 @@ namespace ISM_Vison.Migrations
                 {
                     CameraId = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    SerialNumber = table.Column<int>(type: "INTEGER", nullable: false),
-                    ClassType = table.Column<string>(type: "TEXT", nullable: true),
-                    CameraName = table.Column<string>(type: "TEXT", nullable: true),
+                    SerialNumber = table.Column<string>(type: "TEXT", nullable: true),
+                    Name = table.Column<string>(type: "TEXT", nullable: true),
                     ExposureTime = table.Column<string>(type: "TEXT", nullable: true),
                     CailbFile = table.Column<string>(type: "TEXT", nullable: true),
                     CameraType = table.Column<string>(type: "TEXT", nullable: true),
@@ -37,7 +36,7 @@ namespace ISM_Vison.Migrations
                     Product = table.Column<string>(type: "TEXT", nullable: true),
                     Name = table.Column<string>(type: "TEXT", nullable: true),
                     CameraId = table.Column<int>(type: "INTEGER", nullable: false),
-                    Field0 = table.Column<string>(type: "TEXT", nullable: true),
+                    SequenceType = table.Column<string>(type: "TEXT", nullable: true),
                     Field1 = table.Column<string>(type: "TEXT", nullable: true),
                     Field2 = table.Column<string>(type: "TEXT", nullable: true),
                     Field3 = table.Column<string>(type: "TEXT", nullable: true)
@@ -53,7 +52,7 @@ namespace ISM_Vison.Migrations
                 {
                     IFunc_ObjTypeStringId = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    TypeName = table.Column<string>(type: "TEXT", nullable: true),
+                    Func_ObjType = table.Column<string>(type: "TEXT", nullable: true),
                     parameter = table.Column<string>(type: "TEXT", nullable: true),
                     SequenceId = table.Column<int>(type: "INTEGER", nullable: false)
                 },

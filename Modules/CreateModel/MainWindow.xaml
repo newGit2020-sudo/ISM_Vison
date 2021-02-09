@@ -1,0 +1,46 @@
+﻿<Window x:Class="CreateModel.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CreateModel"
+        xmlns:halcon="clr-namespace:HalconDotNet;assembly=halcondotnet"
+        xmlns:HAL="clr-namespace:HLHal;assembly=HLHal"
+        xmlns:roi="clr-namespace:HLHal.ROI;assembly=HLHal"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="358"/>
+        </Grid.ColumnDefinitions>
+        <WindowsFormsHost  Grid.Column="0" >
+            <HAL:HCtrl x:Name="HCtrl" x:FieldModifier="public"></HAL:HCtrl>
+        </WindowsFormsHost>
+        <StackPanel Grid.Column="1">
+            <WindowsFormsHost   VerticalAlignment="Top" >
+                <roi:ROICtrl x:Name="ROICtrl"/>
+            </WindowsFormsHost>
+            <Button Width="85" Height="25" Margin="4">创建搜索区域</Button>
+            <Grid Height="228">
+                <Label Content="Label" Margin="0,5,321,198"/>
+                <Label Content="Label" Margin="0,34,321,169"/>
+                <TextBox HorizontalAlignment="Left" Margin="42,10,0,0" Text="TextBox" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+                <TextBox HorizontalAlignment="Left" Margin="42,39,0,0" Text="TextBox" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+                <Label Content="Label" Margin="0,66,321,137"/>
+                <TextBox HorizontalAlignment="Left" Margin="42,71,0,0" Text="TextBox" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+                <Button  Margin="22,131,269,68">创建模板</Button>
+                <Button  Margin="127,131,164,68">加载模板</Button>
+                <Button  Margin="22,183,269,16">保存模板</Button>
+            </Grid>
+
+
+        </StackPanel>
+        <!--<Grid  Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition ></RowDefinition>
+                <RowDefinition ></RowDefinition>
+            </Grid.RowDefinitions>
+        </Grid>-->
+    </Grid>
+</Window>

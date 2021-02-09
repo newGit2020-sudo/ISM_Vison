@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ISM_Vison.Migrations
 {
     [DbContext(typeof(VSDBContext))]
-    [Migration("20210207030717_InitialCreate")]
+    [Migration("20210207092740_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -26,13 +26,7 @@ namespace ISM_Vison.Migrations
                     b.Property<string>("CailbFile")
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("CameraName")
-                        .HasColumnType("TEXT");
-
                     b.Property<string>("CameraType")
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("ClassType")
                         .HasColumnType("TEXT");
 
                     b.Property<string>("ExposureTime")
@@ -50,8 +44,11 @@ namespace ISM_Vison.Migrations
                     b.Property<string>("Field3")
                         .HasColumnType("TEXT");
 
-                    b.Property<int>("SerialNumber")
-                        .HasColumnType("INTEGER");
+                    b.Property<string>("Name")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("SerialNumber")
+                        .HasColumnType("TEXT");
 
                     b.HasKey("CameraId");
 
@@ -64,11 +61,11 @@ namespace ISM_Vison.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
+                    b.Property<string>("Func_ObjType")
+                        .HasColumnType("TEXT");
+
                     b.Property<int>("SequenceId")
                         .HasColumnType("INTEGER");
-
-                    b.Property<string>("TypeName")
-                        .HasColumnType("TEXT");
 
                     b.Property<string>("parameter")
                         .HasColumnType("TEXT");
@@ -89,9 +86,6 @@ namespace ISM_Vison.Migrations
                     b.Property<int>("CameraId")
                         .HasColumnType("INTEGER");
 
-                    b.Property<string>("Field0")
-                        .HasColumnType("TEXT");
-
                     b.Property<string>("Field1")
                         .HasColumnType("TEXT");
 
@@ -105,6 +99,9 @@ namespace ISM_Vison.Migrations
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Product")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("SequenceType")
                         .HasColumnType("TEXT");
 
                     b.HasKey("SequenceId");

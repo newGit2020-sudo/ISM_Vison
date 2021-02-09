@@ -11,7 +11,7 @@ namespace Infrastructure.Interface
         string Name { get; set; }
         IFunc_Obj parent {get;set;}
         Type type { get;  }
-        int Load(int Id);
+        int Load();
         int Save();
         void Init();
         bool Run() ;

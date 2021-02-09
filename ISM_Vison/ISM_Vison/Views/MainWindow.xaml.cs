@@ -1,18 +1,10 @@
 ﻿
 using CameraD;
-using ISM_Vison.Services;
-using HalconDotNet;
-
-using ISM_Vison.Models;
-
 using ISM_Vison.ViewModels;
-using Microsoft.EntityFrameworkCore.ChangeTracking;
 using Newtonsoft.Json;
 using Prism.Ioc;
-using Sequence;
 using System;
 using System.Windows;
-using Infrastructure.Interface;
 
 namespace ISM_Vison.Views
 {
@@ -21,13 +13,12 @@ namespace ISM_Vison.Views
     /// </summary>
     public partial class MainWindow : Window
     {
+ //       public static MainWindowViewModel mainWindowViewModel { get; set; }
         IContainerProvider _Container;
-        MainWindowViewModel _MainWindowViewModel;
-        public MainWindow(IContainerProvider Container )
+        public MainWindow(IContainerProvider Container)
         {
             InitializeComponent();
             this._Container = Container;
-          
         }
         public class Product
         {
@@ -39,9 +30,6 @@ namespace ISM_Vison.Views
         }
         private void OpenCamer_Click(object sender, RoutedEventArgs e)
         {
-
-            //DBServer serveDB = DBServer.GetInstance();
-            DBServer serveDB = _Container.Resolve<DBServer>();
             //for (int i = 0; i < Cameras.Length; i++)
             //{
             //    try
@@ -55,9 +43,6 @@ namespace ISM_Vison.Views
             //    }
 
             //}
-
-            //序列表.ItemsSource = serveDB.Sequences;
-            //序列表.DisplayMemberPath = "Name";
         }
         public CameraBase[] Cameras=new CameraBase[4];
         private void Window_Loaded(object sender, RoutedEventArgs e)
