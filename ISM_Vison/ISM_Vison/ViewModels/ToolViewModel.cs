@@ -34,14 +34,12 @@ namespace ISM_Vison.ViewModels
         {
             //dialog.ShowDialog("alert"); 
             //dialog.ShowDialog("WarningDialog");
-
              TopSequenceFunc_Obj topSequenceFunc_Obj = _Container.Resolve<TopSequenceFunc_Obj>();
-            SequenceFunc_Obj _sequenceFunc_Obj = _Container.Resolve<SequenceFunc_Obj>();
+             SequenceFunc_Obj _sequenceFunc_Obj = _Container.Resolve<SequenceFunc_Obj>();
            // _sequenceFunc_Obj.sequence.Name = "hello1111";
             _sequenceFunc_Obj.Name = "hello1111";
             topSequenceFunc_Obj.Children.Add(_sequenceFunc_Obj);
-           topSequenceFunc_Obj.Save();
-
+            topSequenceFunc_Obj.Save();
         }
     }
 }

@@ -64,6 +64,7 @@ namespace ISM_Vison.ViewModels
         }
         private void _TestCommand(string viewName)
         {
+           
             //foreach (var item in TopFunc_Obj.Children)
             //{
             //    SequenceFunc_Obj _sequenceFunc_Obj = _Container.Resolve<IFunc_Obj>("SequenceFunc_Obj") as SequenceFunc_Obj;

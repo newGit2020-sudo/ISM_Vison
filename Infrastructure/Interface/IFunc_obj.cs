@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Prism.Commands;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Text;
@@ -15,5 +16,9 @@ namespace Infrastructure.Interface
         int Save();
         void Init();
         bool Run() ;
+        public DelegateCommand DeleteCommand { get; }
+        public DelegateCommand IsSelectedCommand { get; }
+        
+
     }
 }

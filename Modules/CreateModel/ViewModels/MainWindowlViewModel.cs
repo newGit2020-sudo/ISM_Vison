@@ -1,6 +1,7 @@
 ﻿using Infrastructure.Interface;
 using Infrastructure.Models;
 using Newtonsoft.Json;
+using Prism.Commands;
 using Prism.Ioc;
 using System;
 using System.Collections.Generic;
@@ -20,6 +21,10 @@ namespace CreateModel.ViewModels
         public IFunc_Obj parent { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
 
         public Type type => throw new NotImplementedException();
+
+        public DelegateCommand DeleteCommand => throw new NotImplementedException();
+
+        public DelegateCommand IsSelectedCommand => throw new NotImplementedException();
 
         public void Init()
         {

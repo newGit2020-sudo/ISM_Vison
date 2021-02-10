@@ -1,5 +1,6 @@
 ﻿
 using CameraD;
+using ISM_Vison.Sequence;
 using ISM_Vison.ViewModels;
 using Newtonsoft.Json;
 using Prism.Ioc;
@@ -64,7 +65,7 @@ namespace ISM_Vison.Views
                 }
 
             }
-
+           // MainWindowViewModel mainWindowViewModel = _Container.Resolve<MainWindowViewModel>();
         }
 
         private void FunTest_Click(object sender, RoutedEventArgs e)

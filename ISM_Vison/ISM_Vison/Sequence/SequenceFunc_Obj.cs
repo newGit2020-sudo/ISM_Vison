@@ -1,5 +1,6 @@
 ﻿using Infrastructure.Interface;
 using ISM_Vison.Services;
+using Prism.Commands;
 using Prism.Ioc;
 using Prism.Mvvm;
 using System;
@@ -21,7 +22,9 @@ namespace ISM_Vison.Sequence
         {
             this._Container = Container;
             this._serveDB = _Container.Resolve<DBServer>();
-
+            this.DeleteCommand = new DelegateCommand(this._Delete);
+            this.IsSelectedCommand = new DelegateCommand(this._IsSelected);
+            Children.Add(this);
         }
         public void Init()
         {
@@ -58,5 +61,21 @@ namespace ISM_Vison.Sequence
             }
             return 0;
         }
+        public DelegateCommand DeleteCommand { get; private set; }
+
+       public DelegateCommand IsSelectedCommand { get; private set; }
+        private void _Delete()
+        {
+            if (Children.Count==0)
+            {
+                TopSequenceFunc_Obj topSequenceFunc_Obj= _Container.Resolve<TopSequenceFunc_Obj>();
+                
+            }
+        }
+        private void _IsSelected()
+        {
+
+        }
+      
     }
 }
