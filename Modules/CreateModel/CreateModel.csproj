@@ -15,7 +15,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\Infrastructure\Infrastructure.csproj" />
-    <ProjectReference Include="..\..\ISM_Vison\ISM_Vison.Core\ISM_Vison.Core.csproj" />
+    <ProjectReference Include="..\..\ISM_Vision\ISM_Vision.Core\ISM_Vision.Core.csproj" />
   </ItemGroup>
 
   <ItemGroup>

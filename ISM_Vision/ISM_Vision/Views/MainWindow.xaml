@@ -1,0 +1,143 @@
+﻿<Window
+    x:Class="ISM_Vision.Views.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:HAL="clr-namespace:HLHal;assembly=HLHal"
+    xmlns:core="clr-namespace:ISM_Vision.Core;assembly=ISM_Vision.Core"
+    xmlns:halcon="clr-namespace:HalconDotNet;assembly=halcondotnet"
+    xmlns:prism="http://prismlibrary.com/"
+    xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
+    Title="{Binding Title}"
+    Width="800"
+    Height="550"
+    prism:ViewModelLocator.AutoWireViewModel="True"
+    Closing="Window_Closing"
+    Loaded="Window_Loaded">
+    <Grid>
+        <DockPanel>
+            <Menu DockPanel.Dock="Top">
+                <!--<MenuItem Name="menuOpen" Header="File" Command="{Binding NavigateCommand}" CommandParameter="HelloWorldView"></MenuItem>-->
+                <MenuItem Header="File">
+                    <MenuItem
+                        Command="{Binding NavigateCommand}"
+                        CommandParameter="ViewA"
+                        Header="Open" />
+                    <MenuItem
+                        Command="{Binding NavigateCommand}"
+                        CommandParameter="ViewA"
+                        Header="Save" />
+                    <MenuItem
+                        Command="{Binding NavigateCommand}"
+                        CommandParameter="ViewB"
+                        Header="Delete" />
+                </MenuItem>
+                <MenuItem Header="Edit" />
+                <MenuItem Header="View" />
+                <MenuItem Header="About" />
+                <MenuItem
+                    Name="OpenCamer"
+                    Click="OpenCamer_Click"
+                    Header="打开相机" />
+                <MenuItem
+                    Name="打开相机参数设置"
+                    Click="打开相机参数设置_Click"
+                    Header="打开相机参数设置" />
+                <MenuItem
+                    Name="FunTest"
+                    Click="FunTest_Click"
+                    Header="FunTest" />
+                <MenuItem Command="{Binding Path=TestCommand}" Header="ViewModelTest" />
+                <MenuItem Command="{Binding Path=NavigateCommand}" Header="{Binding test}" />
+            </Menu>
+
+            <ToolBar
+                Name="ToolRegion"
+                prism:RegionManager.RegionName="ToolRegion"
+                DockPanel.Dock="Top" />
+            <StatusBar DockPanel.Dock="Bottom">
+                <TextBlock Text="statusBar" />
+            </StatusBar>
+            <ListBox
+                x:Name="序列表"
+                Width="120"
+                DisplayMemberPath="Name"
+                DockPanel.Dock="Left"
+                ItemsSource="{Binding Path=TopFunc_Obj.Children, UpdateSourceTrigger=PropertyChanged}"
+                SelectedIndex="{Binding Path=TopFunc_Obj.Index, Mode=TwoWay}">
+                <ListBox.ContextMenu>
+                    <ContextMenu Name="contextMenu">
+                        <MenuItem
+                            Name="删除"
+                            Command="{Binding Path=TopFunc_Obj.DeleteCommand}"
+                            Header="删除序列" />
+                    </ContextMenu>
+                </ListBox.ContextMenu>
+
+            </ListBox>
+
+            <StackPanel DockPanel.Dock="Right" Orientation="Horizontal">
+                <ListBox x:Name="序列" ItemsSource="{Binding SelectedItem.Children, ElementName=序列表}" Width="90">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <Grid FocusVisualStyle="{x:Null}">
+                                <Button
+                                    x:Name="sortIndex"
+                                    HorizontalAlignment="Left"
+                                    VerticalAlignment="Top"
+                                    Command="{Binding Path=IsSelectedCommand}"
+                                    Content="{Binding Path=Name}"
+                                    FontFamily="微软雅黑"
+                                    FontSize="18"
+                                    Foreground="Black" />
+                            </Grid>
+                           
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                    <!--<i:Interaction.Triggers>
+                        <i:EventTrigger EventName="SelectionChanged">
+                            <prism:InvokeCommandAction Command="{Binding IsSelectedCommand}"  />
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>-->
+                </ListBox>
+                <ContentControl prism:RegionManager.RegionName="ParameterTable" Width="120" />
+            </StackPanel>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+
+                <WindowsFormsHost Grid.Row="0" Grid.Column="0">
+                    <HAL:HCtrl x:Name="Camera0" x:FieldModifier="public" />
+                </WindowsFormsHost>
+                <WindowsFormsHost Grid.Row="0" Grid.Column="1">
+                    <HAL:HCtrl x:Name="Camera1" x:FieldModifier="public" />
+                </WindowsFormsHost>
+                <WindowsFormsHost Grid.Row="1" Grid.Column="0">
+                    <HAL:HCtrl x:Name="Camera2" x:FieldModifier="public" />
+                </WindowsFormsHost>
+                <WindowsFormsHost Grid.Row="1" Grid.Column="1">
+                    <HAL:HCtrl x:Name="Camera3" x:FieldModifier="public" />
+                </WindowsFormsHost>
+            </Grid>
+            <!--<WrapPanel>
+                <WindowsFormsHost Width="135" Height="135" >
+                    <HAL:HCtrl x:Name="Camera0" x:FieldModifier="public"></HAL:HCtrl>
+                </WindowsFormsHost>
+                <WindowsFormsHost Width="135" Height="135" >
+                    <HAL:HCtrl x:Name="Camera1" x:FieldModifier="public"></HAL:HCtrl>
+                </WindowsFormsHost>
+                <WindowsFormsHost Width="135" Height="135" >
+                    <HAL:HCtrl x:Name="Camera2" x:FieldModifier="public"></HAL:HCtrl>
+                </WindowsFormsHost>
+                <WindowsFormsHost Width="135" Height="135" >
+                    <HAL:HCtrl x:Name="Camera3" x:FieldModifier="public"></HAL:HCtrl>
+                </WindowsFormsHost>
+            </WrapPanel>-->
+        </DockPanel>
+    </Grid>
+</Window>
