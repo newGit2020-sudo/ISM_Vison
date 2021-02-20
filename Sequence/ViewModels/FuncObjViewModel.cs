@@ -6,7 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace ISM_Vision.ViewModels
+namespace Sequence.ViewModels
 {
     public class FuncObjViewModel : RegionViewModelBase
     {

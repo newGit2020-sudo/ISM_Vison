@@ -1,14 +1,9 @@
 ﻿using ISM_Vision.Services;
-using ISM_Vision.Models;
-using ISM_Vision.Views;
 using Prism.Commands;
 using Prism.Ioc;
 using Prism.Mvvm;
 using Prism.Regions;
-using System.Collections.ObjectModel;
-using Infrastructure.Interface;
-using ISM_Vision.Sequence;
-using System.Collections.Generic;
+using Sequence.Sequence;
 
 namespace ISM_Vision.ViewModels
 {

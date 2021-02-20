@@ -1,9 +1,0 @@
-﻿<UserControl x:Class="ISM_Vision.Views.PrismUserControl1"
-             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:prism="http://prismlibrary.com/"             
-             prism:ViewModelLocator.AutoWireViewModel="True" Loaded="UserControl_Loaded">
-    <Grid>
-        <Button >Geometric 01</Button>
-    </Grid>
-</UserControl>

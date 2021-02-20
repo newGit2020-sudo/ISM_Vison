@@ -1,17 +1,12 @@
 ﻿
 using ISM_Vision.Core.Mvvm;
-using ISM_Vision.Sequence;
-using ISM_Vision.Views;
 using Prism.Commands;
 using Prism.Ioc;
-using Prism.Mvvm;
 using Prism.Regions;
 using Prism.Services.Dialogs;
-using System;
-using System.Collections.Generic;
-using System.Linq;
+using Sequence.Sequence;
 
-namespace ISM_Vision.ViewModels
+namespace Sequence.ViewModels
 {
     public class ToolViewModel : RegionViewModelBase
     {

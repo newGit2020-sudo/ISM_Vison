@@ -7,6 +7,12 @@
     <UseWindowsForms>true</UseWindowsForms>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Remove="Sequence\**" />
+    <EmbeddedResource Remove="Sequence\**" />
+    <None Remove="Sequence\**" />
+    <Page Remove="Sequence\**" />
+  </ItemGroup>
+  <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="5.0.2" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="5.0.2">
       <PrivateAssets>all</PrivateAssets>
@@ -20,6 +26,7 @@
     <ProjectReference Include="..\..\CameraD\CameraD.csproj" />
     <ProjectReference Include="..\..\Infrastructure\Infrastructure.csproj" />
     <ProjectReference Include="..\..\MVSHalconWindow\MVSHalconWindow.csproj" />
+    <ProjectReference Include="..\..\Sequence\Sequence.csproj" />
     <ProjectReference Include="..\ISM_Vision.Core\ISM_Vision.Core.csproj" />
   </ItemGroup>
   <ItemGroup>
@@ -29,23 +36,5 @@
     <Reference Include="HLHal">
       <HintPath>..\..\..\..\..\..\..\Program Files\MVTec\HALCON-17.12-Progress\bin\dotnet35\HLHal.dll</HintPath>
     </Reference>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Update="Views\FuncObj.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Update="Views\ToolView.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <Page Update="Views\FuncObj.xaml">
-      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="Views\ToolView.xaml">
-      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
-      <SubType>Designer</SubType>
-    </Page>
   </ItemGroup>
 </Project>

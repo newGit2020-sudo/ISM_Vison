@@ -1,13 +1,11 @@
-﻿
-using Infrastructure.Interface;
-using ISM_Vision.Models;
-using ISM_Vision.Sequence;
+﻿using Infrastructure.Models;
 using ISM_Vision.Services;
 using ISM_Vision.Views;
 using Prism.Ioc;
 using Prism.Modularity;
 using PrismMetroSample.Shell.ViewModels.Dialogs;
 using PrismMetroSample.Shell.Views.Dialogs;
+using Sequence.Sequence;
 using System.Windows;
 
 namespace ISM_Vision
@@ -24,11 +22,11 @@ namespace ISM_Vision
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
-            VSDBContext db = new VSDBContext();
-            DBServer dBServer = DBServer.GetInstance();
-            containerRegistry.RegisterInstance(typeof(DBServer), dBServer); //注册实例
+            //VSDBContext db = new VSDBContext();
+            //DBServer dBServer = DBServer.GetInstance();
+            containerRegistry.RegisterSingleton(typeof(IDBServer), typeof(DBServer)); //注册实例
             containerRegistry.RegisterSingleton<ViewModels.MainWindowViewModel>(); //注册单例
-            containerRegistry.RegisterSingleton<Sequence.TopSequenceFunc_Obj>();//注册单例
+            containerRegistry.RegisterSingleton<TopSequenceFunc_Obj>();//注册单例
             containerRegistry.Register<SequenceFunc_Obj>();
             //注册对话框
             containerRegistry.RegisterDialog<AlertDialog, AlertDialogViewModel>("alert");

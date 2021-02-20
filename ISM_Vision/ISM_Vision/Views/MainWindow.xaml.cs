@@ -1,7 +1,5 @@
 ﻿
 using CameraD;
-using ISM_Vision.Sequence;
-using ISM_Vision.ViewModels;
 using Newtonsoft.Json;
 using Prism.Ioc;
 using System;

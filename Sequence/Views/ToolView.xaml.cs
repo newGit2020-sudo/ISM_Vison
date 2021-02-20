@@ -1,6 +1,6 @@
 ﻿using System.Windows.Controls;
 
-namespace ISM_Vision.Views
+namespace Sequence.Views
 {
     /// <summary>
     /// Interaction logic for ToolView

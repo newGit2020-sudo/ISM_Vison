@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ISM_Vision.ViewModels
+namespace Sequence.ViewModels
 {
     public class ParameterTableViewModel : RegionViewModelBase
     {

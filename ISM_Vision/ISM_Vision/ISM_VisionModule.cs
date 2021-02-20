@@ -1,11 +1,9 @@
-﻿using ISM_Vision.Services;
-using ISM_Vision.Core;
-using ISM_Vision.Models;
+﻿using ISM_Vision.Core;
 using ISM_Vision.Views;
 using Prism.Ioc;
 using Prism.Modularity;
 using Prism.Regions;
-using ISM_Vision.Sequence;
+using Sequence.Views;
 
 namespace ISM_Vision
 {

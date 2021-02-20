@@ -10,13 +10,13 @@ namespace ISM_Vision.Services
 {
     public  class DBServer: IDBServer
     {
-        private static DBServer Instance;
+        //private static DBServer Instance;
         public VSDBContext db;
         public ObservableCollection<Infrastructure.Models.Sequence> Sequences { get; set; }
         public ObservableCollection<Infrastructure.Models.Camera> CameraConfig{ get; set; }
         public ObservableCollection<IFunc_ObjTypeString> IFunc_ObjTypeStrings { get; set; }
    
-        private DBServer()
+        public DBServer()
         {
             db = new VSDBContext();
            // var qurey = from b in db.Cameras orderby b select b;
@@ -32,15 +32,15 @@ namespace ISM_Vision.Services
         {
             return db.SaveChanges();
         }
-       public static DBServer GetInstance()
-        {
-            // 如果类的实例不存在则创建，否则直接返回
-            if (Instance == null)
-            {
-                Instance = new DBServer();
-            }
-            return Instance;
-        }
+       //public static DBServer GetInstance()
+       // {
+       //     // 如果类的实例不存在则创建，否则直接返回
+       //     if (Instance == null)
+       //     {
+       //         Instance = new DBServer();
+       //     }
+       //     return Instance;
+       // }
        public int SetSequence(Infrastructure.Models.Sequence sequence)
         {
             var qurey = from b in db.Sequences
