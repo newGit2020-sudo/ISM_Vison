@@ -12,8 +12,24 @@
     mc:Ignorable="d">
     <Grid>
         <StackPanel Orientation="Vertical" >
-            <Button Height="60" Content="{Binding value}"></Button>
-            <ListBox ></ListBox>
+            <Button Height="20" Content="{Binding value}"></Button>
+            <ListBox >
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock ></TextBlock>
+                            <TextBox></TextBox>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
         </StackPanel>
+        <DataGrid Name="DG1" ItemsSource="{Binding}" AutoGenerateColumns="False" >
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Property"  Binding="{Binding Property}"/>
+                <DataGridTextColumn Header="Value" Binding="{Binding Value}" />
+               
+            </DataGrid.Columns>
+        </DataGrid>
     </Grid>
 </UserControl>

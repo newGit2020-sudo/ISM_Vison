@@ -8,8 +8,8 @@
     xmlns:prism="http://prismlibrary.com/"
     xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
     Title="{Binding Title}"
-    Width="900"
-    Height="600"
+    Width="1000"
+    Height="800"
     prism:ViewModelLocator.AutoWireViewModel="True"
     Closing="Window_Closing"
     Loaded="Window_Loaded">
@@ -59,7 +59,7 @@
             </StatusBar>
             <ListBox
                 x:Name="序列表"
-                Width="120"
+                Width="130"
                 DisplayMemberPath="Name"
                 DockPanel.Dock="Left"
                 ItemsSource="{Binding Path=TopFunc_Obj.Children, UpdateSourceTrigger=PropertyChanged}"
@@ -74,7 +74,7 @@
                 </ListBox.ContextMenu>
             </ListBox>
             <StackPanel DockPanel.Dock="Right" Orientation="Horizontal">
-                <ListBox x:Name="序列" ItemsSource="{Binding SelectedItem.Children, ElementName=序列表}" IsSynchronizedWithCurrentItem="True" Width="90">
+                <ListBox x:Name="序列" ItemsSource="{Binding SelectedItem.Children, ElementName=序列表}" IsSynchronizedWithCurrentItem="True" Width="130">
                     <ListBox.ItemTemplate>
                         <DataTemplate>
                             <Grid FocusVisualStyle="{x:Null}">
@@ -96,10 +96,11 @@
                         </i:EventTrigger>
                     </i:Interaction.Triggers>
                 </ListBox>
-                <ContentControl Content="{Binding  SelectedItem.View, ElementName=序列}" Width="120" />
+                <ContentControl Content="{Binding  SelectedItem.View, ElementName=序列}" Width="200" />
             </StackPanel>
             <Grid>
                 <Grid.RowDefinitions>
+                    <RowDefinition />
                     <RowDefinition />
                     <RowDefinition />
                 </Grid.RowDefinitions>
@@ -121,20 +122,6 @@
                     <HAL:HCtrl x:Name="Camera3" x:FieldModifier="public" />
                 </WindowsFormsHost>
             </Grid>
-            <!--<WrapPanel>
-                <WindowsFormsHost Width="135" Height="135" >
-                    <HAL:HCtrl x:Name="Camera0" x:FieldModifier="public"></HAL:HCtrl>
-                </WindowsFormsHost>
-                <WindowsFormsHost Width="135" Height="135" >
-                    <HAL:HCtrl x:Name="Camera1" x:FieldModifier="public"></HAL:HCtrl>
-                </WindowsFormsHost>
-                <WindowsFormsHost Width="135" Height="135" >
-                    <HAL:HCtrl x:Name="Camera2" x:FieldModifier="public"></HAL:HCtrl>
-                </WindowsFormsHost>
-                <WindowsFormsHost Width="135" Height="135" >
-                    <HAL:HCtrl x:Name="Camera3" x:FieldModifier="public"></HAL:HCtrl>
-                </WindowsFormsHost>
-            </WrapPanel>-->
         </DockPanel>
     </Grid>
 </Window>
