@@ -63,12 +63,14 @@ namespace Sequence.Sequence
 
         public DelegateCommand IsSelectedCommand { get; set; }
 
-        private void _Delete()
-        {   
-            //todo: 这里要调用子元素的删除
+        public void _Delete()
+        {
+            Children[Index]._Delete();
             Children.RemoveAt(Index);
         }
-        private void _IsSelected(){ }
+        private void _IsSelected()
+        {
+        }
 
     }
 }

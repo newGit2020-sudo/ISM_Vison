@@ -18,7 +18,7 @@ namespace Infrastructure.Interface
         bool Run() ;
         public DelegateCommand DeleteCommand { get; }
         public DelegateCommand IsSelectedCommand { get; }
-        
+        public void _Delete();
 
     }
 }

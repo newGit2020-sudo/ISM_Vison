@@ -8,8 +8,8 @@
     xmlns:prism="http://prismlibrary.com/"
     xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
     Title="{Binding Title}"
-    Width="800"
-    Height="550"
+    Width="900"
+    Height="600"
     prism:ViewModelLocator.AutoWireViewModel="True"
     Closing="Window_Closing"
     Loaded="Window_Loaded">
@@ -63,7 +63,7 @@
                 DisplayMemberPath="Name"
                 DockPanel.Dock="Left"
                 ItemsSource="{Binding Path=TopFunc_Obj.Children, UpdateSourceTrigger=PropertyChanged}"
-                SelectedIndex="{Binding Path=TopFunc_Obj.Index, Mode=TwoWay}">
+                SelectedIndex="{Binding Path=TopFunc_Obj.Index, Mode=TwoWay}" IsSynchronizedWithCurrentItem="True">
                 <ListBox.ContextMenu>
                     <ContextMenu Name="contextMenu">
                         <MenuItem
@@ -72,11 +72,9 @@
                             Header="删除序列" />
                     </ContextMenu>
                 </ListBox.ContextMenu>
-
             </ListBox>
-
             <StackPanel DockPanel.Dock="Right" Orientation="Horizontal">
-                <ListBox x:Name="序列" ItemsSource="{Binding SelectedItem.Children, ElementName=序列表}" Width="90">
+                <ListBox x:Name="序列" ItemsSource="{Binding SelectedItem.Children, ElementName=序列表}" IsSynchronizedWithCurrentItem="True" Width="90">
                     <ListBox.ItemTemplate>
                         <DataTemplate>
                             <Grid FocusVisualStyle="{x:Null}">
@@ -90,16 +88,15 @@
                                     FontSize="18"
                                     Foreground="Black" />
                             </Grid>
-                           
                         </DataTemplate>
                     </ListBox.ItemTemplate>
-                    <!--<i:Interaction.Triggers>
+                    <i:Interaction.Triggers>
                         <i:EventTrigger EventName="SelectionChanged">
-                            <prism:InvokeCommandAction Command="{Binding IsSelectedCommand}"  />
+                            <prism:InvokeCommandAction Command="{Binding IsSelectedCommand}" CommandParameter="{Binding SelectedItem, ElementName=序列}" />
                         </i:EventTrigger>
-                    </i:Interaction.Triggers>-->
+                    </i:Interaction.Triggers>
                 </ListBox>
-                <ContentControl prism:RegionManager.RegionName="ParameterTable" Width="120" />
+                <ContentControl Content="{Binding  SelectedItem.View, ElementName=序列}" Width="120" />
             </StackPanel>
             <Grid>
                 <Grid.RowDefinitions>

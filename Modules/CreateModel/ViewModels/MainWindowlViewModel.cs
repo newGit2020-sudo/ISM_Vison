@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace CreateModel.ViewModels
 {
-    public class MainWindowlViewModel : IFunc_Obj
+    public class MainWindowlViewModel
     {
         IContainerProvider _Container;
         IFunc_ObjTypeString func_ObjTypeString { get; set; }

@@ -1,12 +1,11 @@
-﻿
-using Prism.Mvvm;
+﻿using Prism.Mvvm;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 
 namespace Infrastructure.Models
 {
-   public interface IDBServer
+    public interface IDBServer
     {
         public ObservableCollection<Sequence> Sequences { get; set; }
         public ObservableCollection<Camera> CameraConfig { get; set; }
@@ -17,6 +16,10 @@ namespace Infrastructure.Models
         public Camera GetCamera(String Name);
 
         public IFunc_ObjTypeString GetIFunc_ObjTypeStrings(int ID);
+        public IFunc_ObjTypeString GetIFunc_ObjTypeStrings(String Name);
+        public int GetMaxSequenceID();
+        public int GetMaxFunc_ObjTypeStringID();
+        public int GetMaxCameraID();
     }
 
     public class Camera : BindableBase
@@ -24,7 +27,7 @@ namespace Infrastructure.Models
         public int CameraId { get; set; }
         private string _SerialNumber;
         public string SerialNumber { get { return _SerialNumber; } set { SetProperty(ref _SerialNumber, value); } }
-       
+
         private string _Name;
         public string Name { get { return _Name; } set { SetProperty(ref _Name, value); } }
 
@@ -48,7 +51,7 @@ namespace Infrastructure.Models
         public int SequenceId { get; set; }
         private string _Product;
         public string Product { get { return _Product; } set { SetProperty(ref _Product, value); } }
-        private string _Name = "Sequence01";
+        private string _Name = "Sequence";
         public string Name { get { return _Name; } set { SetProperty(ref _Name, value); } }
         private int _CameraId;
         public int CameraId { get { return _CameraId; } set { SetProperty(ref _CameraId, value); } }
@@ -65,12 +68,13 @@ namespace Infrastructure.Models
     public class IFunc_ObjTypeString : BindableBase
     {
         public int IFunc_ObjTypeStringId { get; set; }
+        private string _Name;
+        public string Name { get { return _Name; } set { SetProperty(ref _Name, value); } }
         private string _Func_ObjType;
         public string Func_ObjType { get { return _Func_ObjType; } set { SetProperty(ref _Func_ObjType, value); } }
         private string _parameter;
         public string parameter { get { return _parameter; } set { SetProperty(ref _parameter, value); } }
-        private int _SequenceId;
-        public int SequenceId { get { return _SequenceId; } set { SetProperty(ref _SequenceId, value); } }
+        public int SequenceId { get; set; }
 
     }
     //public class Camera :BindableBase 
@@ -108,4 +112,3 @@ namespace Infrastructure.Models
 
     //}
 }
-

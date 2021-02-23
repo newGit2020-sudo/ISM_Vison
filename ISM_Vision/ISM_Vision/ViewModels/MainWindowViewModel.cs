@@ -16,7 +16,7 @@ namespace ISM_Vision.ViewModels
         // public ObservableCollection<Infrastructure.Models.Sequence> Sequences { get; set; } 
         public TopSequenceFunc_Obj TopFunc_Obj { get; set; }
         public DelegateCommand<string> NavigateCommand { get; private set; }
-        public DelegateCommand<string> TestCommand { get; private set; }
+        public DelegateCommand<SequenceFunc_Obj> IsSelectedCommand { get; private set; }
         private readonly IRegionManager _regionManager;
         private readonly IRegionViewRegistry _regionViewRegistry;
 
@@ -45,27 +45,16 @@ namespace ISM_Vision.ViewModels
             //}
 
             this.NavigateCommand = new DelegateCommand<string>(this.Navigate);
-            this.TestCommand = new DelegateCommand<string>(this._TestCommand);
+            this.IsSelectedCommand = new DelegateCommand<SequenceFunc_Obj>(this._IsSelectedCommand);
         }
         public string test { get; set; } = "firat";
         private void Navigate(string viewName)
         {
-            test = "test";
-            DBServer serveDB = _Container.Resolve<DBServer>();
-            //foreach (var item in Sequences)
-            //{
-            //    item.Name += 3;
-            //}
+            
         }
-        private void _TestCommand(string viewName)
+        private void _IsSelectedCommand(SequenceFunc_Obj viewName)
         {
-           
-            //foreach (var item in TopFunc_Obj.Children)
-            //{
-            //    SequenceFunc_Obj _sequenceFunc_Obj = _Container.Resolve<IFunc_Obj>("SequenceFunc_Obj") as SequenceFunc_Obj;
-            //    _sequenceFunc_Obj.sequence = item.;
-            //    _sequenceFunc_Obj.Load();
-            //} 
+          
         }
     }
 }
