@@ -63,7 +63,7 @@
                 DisplayMemberPath="Name"
                 DockPanel.Dock="Left"
                 ItemsSource="{Binding Path=TopFunc_Obj.Children, UpdateSourceTrigger=PropertyChanged}"
-                SelectedIndex="{Binding Path=TopFunc_Obj.Index, Mode=TwoWay}" IsSynchronizedWithCurrentItem="True">
+                SelectedIndex="{Binding Path=TopFunc_Obj.Index, Mode=TwoWay}" >
                 <ListBox.ContextMenu>
                     <ContextMenu Name="contextMenu">
                         <MenuItem

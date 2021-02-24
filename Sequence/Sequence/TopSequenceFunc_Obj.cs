@@ -14,7 +14,14 @@ namespace Sequence.Sequence
         private IDBServer _serveDB;
         private IContainerProvider _Container;
         public ObservableCollection<IFunc_Obj> Children { get; set; } = new ObservableCollection<IFunc_Obj>();
-        public int Index { get; set; }
+        private int _index;
+        public int Index
+        {
+            get { return _index; }
+            set { _index = value;
+                RaisePropertyChanged(); }
+        }
+
         public TopSequenceFunc_Obj(IContainerProvider Container) 
         {
             this._Container = Container;
@@ -54,7 +61,6 @@ namespace Sequence.Sequence
             }
            return 0;
         }
-
         public DelegateCommand DeleteCommand { get; private set; }
         public string Name { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
         public IFunc_Obj parent { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }

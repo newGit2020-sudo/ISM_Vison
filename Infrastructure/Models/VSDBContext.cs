@@ -12,7 +12,8 @@ namespace Infrastructure.Models
         public ObservableCollection<IFunc_ObjTypeString> IFunc_ObjTypeStrings { get; set; }
         public int SaveChanges();
         public Sequence GetSequence(String Name);
-
+        public Sequence GetSequence(int ID);
+        public Camera GetCamera(int ID);
         public Camera GetCamera(String Name);
 
         public IFunc_ObjTypeString GetIFunc_ObjTypeStrings(int ID);

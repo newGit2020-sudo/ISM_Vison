@@ -20,7 +20,7 @@ namespace CreateModel
         }
         public void RegisterTypes(IContainerRegistry containerRegistry)
         {
-            containerRegistry.RegisterSingleton<IFunc_Obj, ViewModels.MainWindowlViewModel>();
+           // containerRegistry.RegisterSingleton<IFunc_Obj, ViewModels.MainWindowlViewModel>();
         }
     }
 }

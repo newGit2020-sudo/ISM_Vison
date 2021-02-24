@@ -23,7 +23,7 @@ namespace Sequence.Sequence
         public Infrastructure.Models.Sequence sequence { get; set; } = new Infrastructure.Models.Sequence();
         private IDBServer _DBserve;
         private IContainerProvider _Container;
-        public string Name { get { return sequence.Name; } set { sequence.Name=value;  } } //"Sequence 01";
+        public string Name { get { return sequence.Name; } set { sequence.Name=value; RaisePropertyChanged(); } } //"Sequence 01";
         public Type type { get => this.GetType(); }
         public ObservableCollection<IFunc_Obj> Children { get; set; } = new ObservableCollection<IFunc_Obj>();
         public IFunc_Obj parent { get; set; }
@@ -35,9 +35,8 @@ namespace Sequence.Sequence
             this.DeleteCommand = new DelegateCommand(this._Delete);
             this.IsSelectedCommand = new DelegateCommand(this._IsSelected);
             View = new ParameterTable();
-            (((View as ParameterTable).DataContext) as ParameterTableViewModel).sequenceFunc_Obj = this;
+            (((View as ParameterTable).DataContext) as ParameterTableViewModel).Sequence = this.sequence;
             Init();
-
             Children.Add(this);
         }
         public void Init()

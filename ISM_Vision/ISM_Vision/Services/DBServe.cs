@@ -41,17 +41,7 @@ namespace ISM_Vision.Services
         //     }
         //     return Instance;
         // }
-        public int SetSequence(Infrastructure.Models.Sequence sequence)
-        {
-            var qurey = from b in db.Sequences
-                        where b.SequenceId == sequence.SequenceId
-                        select b;
-            if (qurey.Count() == 1)
-            {
-                return SaveChanges();
-            }
-            return 0;
-        }
+
 
         public Infrastructure.Models.Sequence GetSequence(String Name)
         {
@@ -134,6 +124,30 @@ namespace ISM_Vision.Services
                 return 1;
             }
 
+        }
+
+        public Infrastructure.Models.Sequence GetSequence(int ID)
+        {
+            var qurey = from b in db.Sequences
+                        where b.SequenceId == ID
+                        select b;
+            if (qurey.Count() == 1)
+            {
+                return qurey.First() as Infrastructure.Models.Sequence;
+            }
+            else return null;
+        }
+
+        public Camera GetCamera(int ID)
+        {
+            var qurey = from b in db.Cameras
+                        where b.CameraId == ID
+                        select b;
+            if (qurey.Count() == 1)
+            {
+                return qurey.First() as Infrastructure.Models.Camera;
+            }
+            else return null;
         }
         //CRUD(Create, Read, Update and Delete)
     }
