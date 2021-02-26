@@ -86,7 +86,16 @@
                                     Content="{Binding Path=Name}"
                                     FontFamily="微软雅黑"
                                     FontSize="18"
-                                    Foreground="Black" />
+                                    Foreground="Black" >
+                                    <Button.ContextMenu>
+                                        <ContextMenu Name="contextMenu">
+                                            <MenuItem
+                                                Name="删除"
+                                                Command="{Binding Path=DeleteCommand}"
+                                                Header="删除序列" />
+                                        </ContextMenu>
+                                    </Button.ContextMenu>
+                                </Button>
                             </Grid>
                         </DataTemplate>
                     </ListBox.ItemTemplate>

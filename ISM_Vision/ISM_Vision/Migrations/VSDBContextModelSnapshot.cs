@@ -42,6 +42,9 @@ namespace ISM_Vision.Migrations
                     b.Property<string>("Field3")
                         .HasColumnType("TEXT");
 
+                    b.Property<int>("Index")
+                        .HasColumnType("INTEGER");
+
                     b.Property<string>("Name")
                         .HasColumnType("TEXT");
 
@@ -60,6 +63,9 @@ namespace ISM_Vision.Migrations
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("Func_ObjType")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Name")
                         .HasColumnType("TEXT");
 
                     b.Property<int>("SequenceId")
@@ -83,6 +89,9 @@ namespace ISM_Vision.Migrations
 
                     b.Property<int>("CameraId")
                         .HasColumnType("INTEGER");
+
+                    b.Property<string>("ExposureTime")
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("Field1")
                         .HasColumnType("TEXT");

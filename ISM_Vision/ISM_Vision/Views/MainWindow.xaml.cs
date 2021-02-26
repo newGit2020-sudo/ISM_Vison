@@ -82,8 +82,8 @@ namespace ISM_Vision.Views
         private void 打开相机参数设置_Click(object sender, RoutedEventArgs e)
         { 
             MVSHalconWindow.Form1 form1 = new MVSHalconWindow.Form1();
-            form1.ShowDialog();
-           // float 曝光时间 = form1.Exposure;
+            form1.Show();
+            
         }
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)

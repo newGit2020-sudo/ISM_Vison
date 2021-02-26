@@ -19,6 +19,10 @@ namespace ISM_Vision.Services
         public DBServer()
         {
             db = new VSDBContext();
+            //if (CameraConfig==null || CameraConfig.Count == 0)
+            //{
+            //    GetCameraInit();
+            //}
             // var qurey = from b in db.Cameras orderby b select b;
             foreach (var item in db.Cameras) { }
             CameraConfig = db.Cameras.Local.ToObservableCollection();
@@ -27,6 +31,7 @@ namespace ISM_Vision.Services
             Sequences = db.Sequences.Local.ToObservableCollection();
             foreach (var item in db.IFunc_ObjTypeStrings) { }
             IFunc_ObjTypeStrings = db.IFunc_ObjTypeStrings.Local.ToObservableCollection();
+           
         }
         public int SaveChanges()
         {
@@ -88,24 +93,18 @@ namespace ISM_Vision.Services
             }
             else return null;
         }
-        public int GetMaxCameraID()
-        {
-            if (Sequences != null)
-            {
-                return CameraConfig.Max(x => x.CameraId);
-            }
-            else
-            {
-                return 1;
-            }
 
-        }
 
         public int GetMaxSequenceID()
         {
-            if (Sequences != null)
+            if (Sequences != null && Sequences.Count>0)
             {
-                return Sequences.Max(x => x.SequenceId);
+                int? max= Sequences.Max(x => x.SequenceId);
+                if (max!=null)
+                {
+                    return max.Value;
+                }
+                return 1;
             }
             else
             {
@@ -150,5 +149,18 @@ namespace ISM_Vision.Services
             else return null;
         }
         //CRUD(Create, Read, Update and Delete)
+        public  void GetCameraInit()
+        {
+           // CameraConfig.Clear();
+            Camera camera_c1 = new Camera() { Name = "c1", Index = 0 };
+            CameraConfig.Add(camera_c1);
+            Camera camera_c2 = new Camera() { Name = "c2", Index = 1};
+            CameraConfig.Add(camera_c2);
+            Camera camera_c3 = new Camera() { Name = "c3", Index = 2};
+            CameraConfig.Add(camera_c3);
+            Camera camera_c4 = new Camera() { Name = "c4", Index = 3 };
+            CameraConfig.Add(camera_c4);
+            SaveChanges();
+        }
     }
 }

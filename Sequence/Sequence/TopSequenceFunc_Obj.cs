@@ -40,14 +40,24 @@ namespace Sequence.Sequence
             foreach (var item in _serveDB.Sequences)
             {
                 SequenceFunc_Obj _sequenceFunc_Obj = _Container.Resolve<SequenceFunc_Obj>();
+                _sequenceFunc_Obj.parent = this;
                 _sequenceFunc_Obj.sequence = item;
                 _sequenceFunc_Obj.Load();
-                _sequenceFunc_Obj.parent = this;
                 Children.Add(_sequenceFunc_Obj);  
             }
             return 0;
         }
-
+        public int Load(Infrastructure.Models.Sequence sequence)
+        {
+            _serveDB = _Container.Resolve<IDBServer>();          
+                SequenceFunc_Obj _sequenceFunc_Obj = _Container.Resolve<SequenceFunc_Obj>();
+                _sequenceFunc_Obj.parent = this;
+                _sequenceFunc_Obj.sequence = sequence;
+                _sequenceFunc_Obj.Load();
+                Children.Add(_sequenceFunc_Obj);
+        
+            return 0;
+        }
         public bool Run()
         {
             throw new NotImplementedException();
@@ -71,8 +81,8 @@ namespace Sequence.Sequence
 
         public void _Delete()
         {
-            Children[Index]._Delete();
-            Children.RemoveAt(Index);
+            Children[_index]._Delete();
+            Children.RemoveAt(_index);
         }
         private void _IsSelected()
         {

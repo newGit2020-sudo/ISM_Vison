@@ -12,6 +12,11 @@
     <ProjectReference Include="..\ISM_Vision\ISM_Vision.Core\ISM_Vision.Core.csproj" />
   </ItemGroup>
   <ItemGroup>
+    <Reference Include="HLHal">
+      <HintPath>..\..\..\..\..\..\Program Files\MVTec\HALCON-17.12-Progress\bin\dotnet35\HLHal.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
     <Compile Update="Views\ToolView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>

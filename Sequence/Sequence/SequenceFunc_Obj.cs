@@ -19,7 +19,6 @@ namespace Sequence.Sequence
             get { return _View; }
             set { _View = value; RaisePropertyChanged(); }
         }
-
         public Infrastructure.Models.Sequence sequence { get; set; } = new Infrastructure.Models.Sequence();
         private IDBServer _DBserve;
         private IContainerProvider _Container;
@@ -34,9 +33,6 @@ namespace Sequence.Sequence
             this._DBserve = _Container.Resolve<IDBServer>();
             this.DeleteCommand = new DelegateCommand(this._Delete);
             this.IsSelectedCommand = new DelegateCommand(this._IsSelected);
-            View = new ParameterTable();
-            (((View as ParameterTable).DataContext) as ParameterTableViewModel).Sequence = this.sequence;
-            Init();
             Children.Add(this);
         }
         public void Init()
@@ -81,7 +77,6 @@ namespace Sequence.Sequence
             return 0;
         }
         public DelegateCommand DeleteCommand { get; private set; }
-
         public DelegateCommand IsSelectedCommand { get; private set; }
         public void _Delete()
         {
@@ -89,16 +84,25 @@ namespace Sequence.Sequence
             {
                 Children[i]._Delete();
             }
+            TopSequenceFunc_Obj topSequenceFunc_Obj = _Container.Resolve<TopSequenceFunc_Obj>();
+         //   topSequenceFunc_Obj.Children.Remove((this) as IFunc_Obj);
             _DBserve.Sequences.Remove(sequence);
             _DBserve.SaveChanges();
         }
-
         private void _IsSelected()
         {
         }
 
         public int Load()
         {
+            View = new ParameterTable();
+            (((View as ParameterTable).DataContext) as ParameterTableViewModel).SequenceFun = this;
+            for (int i = 1; i < Children.Count; i++)
+            {
+                Children[i].parent = this;
+                Children[i].Load();
+            }
+           
             return 0;
         }
 

@@ -17,31 +17,46 @@ namespace Sequence.ViewModels
 {
     public class ParameterTableViewModel : RegionViewModelBase
     {
-        private Infrastructure.Models.Sequence _Sequence;
-        public Infrastructure.Models.Sequence Sequence
+        private SequenceFunc_Obj _sequenceFunc;
+        public SequenceFunc_Obj SequenceFun
         {
-            get { return _Sequence; }
+            get { return _sequenceFunc; }
             set
             {
-                _Sequence = value;
-                IDBServer dBServer = _Container.Resolve<IDBServer>();
-                camera = dBServer.GetCamera(_Sequence.CameraId);
+                _sequenceFunc = value;
+             //   IDBServer dBServer = _Container.Resolve<IDBServer>();
+                camera = dBServer.GetCamera(_sequenceFunc.sequence.CameraId);
+                if (camera!=null)
+                {
+                    camera.Index = 0;
+                }
+                
                 RaisePropertyChanged(); }
         }
         private Camera camera { get; set; }
+        public ObservableCollection<Infrastructure.Models.Camera> CameraConfig { get; set; }
         private readonly IRegionManager _regionManager;
         private readonly IRegionViewRegistry _regionViewRegistry;
         private readonly  IContainerProvider _Container;
+        private IDBServer dBServer;
         public DelegateCommand<string> NavigateCommand { get; private set; }
+        public DelegateCommand<Camera> IsSelectedCommand { get; private set; }
         private void Navigate(string viewName){}
         public ParameterTableViewModel(IRegionViewRegistry regionViewRegistry, IRegionManager regionManager, IContainerProvider Container) : base(regionManager)
         {
             this._Container = Container;
-            IDBServer dBServer = _Container.Resolve<IDBServer>();
+             dBServer = _Container.Resolve<IDBServer>();
+            this.CameraConfig = dBServer.CameraConfig;
             this._regionViewRegistry = regionViewRegistry;
             this._regionManager = regionManager;
             this._Container = Container;
             this.NavigateCommand = new DelegateCommand<string>(this.Navigate);
+            this.IsSelectedCommand = new DelegateCommand<Camera>(this._IsSelectedCommand);
+        }
+        private void _IsSelectedCommand(Camera SelectItem)
+        {
+            camera = SelectItem as Camera;
+            _sequenceFunc.sequence.CameraId = camera.CameraId;
         }
     }
 }

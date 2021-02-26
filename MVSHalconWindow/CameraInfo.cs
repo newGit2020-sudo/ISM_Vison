@@ -15,7 +15,7 @@ namespace MVSHalconWindow
         public string CailbFile { get; set; }
         public string CameraType { get; set; }
         public string Gain { get; set; } 
-        public string Field1 { get; set; }
+        public string Index { get; set; } 
         public string Field2 { get; set; }
         public string Field3 { get; set; }
     }

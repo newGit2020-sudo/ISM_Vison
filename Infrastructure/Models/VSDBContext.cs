@@ -20,7 +20,6 @@ namespace Infrastructure.Models
         public IFunc_ObjTypeString GetIFunc_ObjTypeStrings(String Name);
         public int GetMaxSequenceID();
         public int GetMaxFunc_ObjTypeStringID();
-        public int GetMaxCameraID();
     }
 
     public class Camera : BindableBase
@@ -38,6 +37,8 @@ namespace Infrastructure.Models
         public string CailbFile { get { return _CailbFile; } set { SetProperty(ref _CailbFile, value); } }
         private string _CameraType;
         public string CameraType { get { return _CameraType; } set { SetProperty(ref _CameraType, value); } }
+        private int _index;
+        public int Index { get { return _index; } set { SetProperty(ref _index, value); } }
         private string _Field0;
         public string Field0 { get { return _Field0; } set { SetProperty(ref _Field0, value); } }
         private string _Field1;
@@ -58,6 +59,8 @@ namespace Infrastructure.Models
         public int CameraId { get { return _CameraId; } set { SetProperty(ref _CameraId, value); } }
         private string _SequenceType;
         public string SequenceType { get { return _SequenceType; } set { SetProperty(ref _SequenceType, value); } }
+        private string _ExposureTime;
+        public string ExposureTime { get { return _ExposureTime; } set { SetProperty(ref _ExposureTime, value); } }
         private string _Field1;
         public string Field1 { get { return _Field1; } set { SetProperty(ref _Field1, value); } }
         private string _Field2;

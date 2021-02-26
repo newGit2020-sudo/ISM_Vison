@@ -28,21 +28,17 @@ namespace Sequence.ViewModels
         }
         private void Create(string viewName)
         {
-            TopSequenceFunc_Obj topSequenceFunc_Obj = _Container.Resolve<TopSequenceFunc_Obj>();
-            SequenceFunc_Obj _sequenceFunc_Obj = _Container.Resolve<SequenceFunc_Obj>();
             IDBServer dBServer = _Container.Resolve<IDBServer>();
-            _sequenceFunc_Obj.Name += dBServer.GetMaxSequenceID();
-            if (_sequenceFunc_Obj.Save() == 1)
-            {
-                topSequenceFunc_Obj.Children.Add(_sequenceFunc_Obj);
-                topSequenceFunc_Obj.Index = topSequenceFunc_Obj.Children.Count - 1;
-                //TODO:这里添加index=0；
-               // _sequenceFunc_Obj.Index
-            }
-            //else
-            //{
-            //    throw new System.Exception("创建失败，保存数据出错");
-            //}
+            TopSequenceFunc_Obj topSequenceFunc_Obj = _Container.Resolve<TopSequenceFunc_Obj>();
+            Infrastructure.Models.Sequence sequence = new Infrastructure.Models.Sequence();
+            sequence.Name += dBServer.GetMaxSequenceID() + 1;
+            dBServer.Sequences.Add(sequence);
+            dBServer.SaveChanges();
+            topSequenceFunc_Obj.Load(sequence);
+
+            SequenceFunc_Obj _sequenceFunc_Obj = _Container.Resolve<SequenceFunc_Obj>();
+            _sequenceFunc_Obj.Name += dBServer.GetMaxSequenceID() +1;
+            topSequenceFunc_Obj.Index = topSequenceFunc_Obj.Children.Count - 1;
         }
     }
 }

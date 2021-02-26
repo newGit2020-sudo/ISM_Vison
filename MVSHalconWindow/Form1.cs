@@ -16,6 +16,7 @@ namespace MVSHalconWindow
 {
     public partial class Form1 : Form
     {
+        public List<CameraInfo> ListcameraInfos = new List<CameraInfo>();
         MyCamera.MV_CC_DEVICE_INFO_LIST m_pDeviceList;
         private MyCamera m_pMyCamera;
         bool m_bGrabbing;
@@ -91,10 +92,20 @@ namespace MVSHalconWindow
                     if (gigeInfo.chUserDefinedName != "")
                     {   
                         cbDeviceList.Items.Add("GigE: " + gigeInfo.chUserDefinedName + " (" + gigeInfo.chSerialNumber + ")");
+                        CameraInfo cameraInfo = new CameraInfo();
+                        cameraInfo.CameraName = gigeInfo.chUserDefinedName;
+                        cameraInfo.SerialNumber = gigeInfo.chSerialNumber;
+                        cameraInfo.Index = i.ToString();
+                        ListcameraInfos.Add(cameraInfo);
                     }
                     else
                     {
                         cbDeviceList.Items.Add("GigE: " + gigeInfo.chManufacturerName + " " + gigeInfo.chModelName + " (" + gigeInfo.chSerialNumber + ")");
+                        CameraInfo cameraInfo = new CameraInfo();
+                        cameraInfo.CameraName = gigeInfo.chManufacturerName + " " + gigeInfo.chModelName;
+                        cameraInfo.SerialNumber = gigeInfo.chSerialNumber;
+                        cameraInfo.Index = i.ToString();
+                        ListcameraInfos.Add(cameraInfo);
                     }
                 }
                 else if (device.nTLayerType == MyCamera.MV_USB_DEVICE)
@@ -126,9 +137,9 @@ namespace MVSHalconWindow
             {
                 MessageBox.Show("No device,please select");
                 return;
-            }
+            }  
             int nRet = -1;
-
+              
             //ch:获取选择的设备信息 | en:Get selected device information
             MyCamera.MV_CC_DEVICE_INFO device =
                 (MyCamera.MV_CC_DEVICE_INFO)Marshal.PtrToStructure(m_pDeviceList.pDeviceInfo[cbDeviceList.SelectedIndex],
@@ -644,19 +655,17 @@ namespace MVSHalconWindow
             SetCtrlWhenStopGrab();
         }
 
-       public CameraInfo cameraInfo = new CameraInfo();
-        public List<CameraInfo> ListcameraInfos = new List<CameraInfo>(4);
+
         private void bnGetParam_Click(object sender, EventArgs e)
         {
-            
-
             MyCamera.MVCC_FLOATVALUE stParam = new MyCamera.MVCC_FLOATVALUE();
-            int nRet  = m_pMyCamera.MV_CC_GetExposureTime_NET(ref stParam);
-         // int nRet = m_pMyCamera.MV_CC_GetFloatValue_NET("ExposureTime", ref stParam);
+            int nRet  = m_pMyCamera.MV_CC_GetExposureTime_NET(ref stParam); //使用方法读取
+         // int nRet = m_pMyCamera.MV_CC_GetFloatValue_NET("ExposureTime", ref stParam);//使用参数读取
             if (MyCamera.MV_OK == nRet)
             {
-               cameraInfo.ExposureTime = stParam.fCurValue.ToString();
+            //   cameraInfo.ExposureTime = stParam.fCurValue.ToString();
                 tbExposure.Text = stParam.fCurValue.ToString("F1");
+                ListcameraInfos[cbDeviceList.SelectedIndex].ExposureTime = tbExposure.Text;
             }
 
             nRet = m_pMyCamera.MV_CC_GetFloatValue_NET("Gain", ref stParam);
@@ -664,6 +673,8 @@ namespace MVSHalconWindow
             {
                // Gain = stParam.fCurValue;
                 tbGain.Text = stParam.fCurValue.ToString("F1");
+                ListcameraInfos[cbDeviceList.SelectedIndex].Gain = tbGain.Text;
+
             }
 
             nRet = m_pMyCamera.MV_CC_GetFloatValue_NET("ResultingFrameRate", ref stParam);
@@ -719,7 +730,5 @@ namespace MVSHalconWindow
         {
             bnClose_Click(sender, e);
         }
-
-
     }
 }
