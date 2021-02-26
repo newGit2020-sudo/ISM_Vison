@@ -42,8 +42,9 @@ namespace Sequence.Sequence
                 SequenceFunc_Obj _sequenceFunc_Obj = _Container.Resolve<SequenceFunc_Obj>();
                 _sequenceFunc_Obj.parent = this;
                 _sequenceFunc_Obj.sequence = item;
+                //_sequenceFunc_Obj.Load();
+                Children.Add(_sequenceFunc_Obj);
                 _sequenceFunc_Obj.Load();
-                Children.Add(_sequenceFunc_Obj);  
             }
             return 0;
         }

@@ -23,6 +23,8 @@ namespace Sequence.Views
         public ParameterTable()
         {
             InitializeComponent();
+            ComboBox cb = (ComboBox)this.FindName("CameraCB");
+            ListBox stBox = (ListBox)this.FindName("listbox");
         }
     }
 }

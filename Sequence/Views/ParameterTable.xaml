@@ -11,72 +11,77 @@
     prism:ViewModelLocator.AutoWireViewModel="True"
     mc:Ignorable="d">
     <Grid>
-        <ListBox>
-            <ListBoxItem>
-                <ListBoxItem.Template>
-                    <ControlTemplate>
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition />
-                                <ColumnDefinition />
-                            </Grid.ColumnDefinitions>
-                            <Border BorderBrush="Orange" BorderThickness="1" CornerRadius="6" Background="Yellow">
-                                <TextBlock
+        <StackPanel>
+            <!--<GridSplitter  Width ="5" ></ GridSplitter >-->
+            <ListBox x:Name="listbox">
+                <ListBoxItem>
+                    <ListBoxItem.Template>
+                        <ControlTemplate>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition />
+                                    <ColumnDefinition />
+                                </Grid.ColumnDefinitions>
+                                <Border BorderBrush="Orange" BorderThickness="1" CornerRadius="6" Background="Yellow">
+                                    <TextBlock
                                 Grid.Column="0"
                                 Background="AliceBlue"
                                 Text="Name" />
-                            </Border>
-                            <TextBox Grid.Column="1" Text="{Binding Path=SequenceFun.sequence.Name}" />
-                        </Grid>
-                    </ControlTemplate>
-                </ListBoxItem.Template>
-            </ListBoxItem>
-            <ListBoxItem>
-                <ListBoxItem.Template>
-                    <ControlTemplate>
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition />
-                                <ColumnDefinition />
-                            </Grid.ColumnDefinitions>
-                            <TextBlock
+                                </Border>
+                                <TextBox Grid.Column="1" Text="{Binding Path=SequenceFun.sequence.Name}" />
+                            </Grid>
+                        </ControlTemplate>
+                    </ListBoxItem.Template>
+                </ListBoxItem>
+                <ListBoxItem>
+                    <ListBoxItem.Template>
+                        <ControlTemplate>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition />
+                                    <ColumnDefinition />
+                                </Grid.ColumnDefinitions>
+                                <TextBlock
                                     Grid.Column="0"
                                     Text="Camera" />
-                            <ComboBox Name="CameraCB" Grid.Column="1" DisplayMemberPath="Name"  SelectedValuePath="CameraId" SelectedItem ="Index" ItemsSource="{Binding Path=CameraConfig}" >
+                                <ComboBox Name="CameraCB" Grid.Column="1" DisplayMemberPath="Name"   SelectedIndex ="{Binding Path=Index}" ItemsSource="{Binding Path=CameraConfig}" >
                                 <i:Interaction.Triggers>
                                     <i:EventTrigger EventName="SelectionChanged">
                                         <prism:InvokeCommandAction Command="{Binding IsSelectedCommand}" CommandParameter="{Binding SelectedItem, ElementName=CameraCB}" />
                                     </i:EventTrigger>
                                 </i:Interaction.Triggers>
                             </ComboBox>
-                        </Grid>
-                    </ControlTemplate>
-                </ListBoxItem.Template>
-            </ListBoxItem>
-            <ListBoxItem>
-                <ListBoxItem.Template>
-                    <ControlTemplate>
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition />
-                                <ColumnDefinition />
-                            </Grid.ColumnDefinitions>
-                            <TextBlock
+                                <!--<ComboBox Name="CameraCB" Grid.Column="1" DisplayMemberPath="Name" ItemsSource="{Binding Path=CameraConfig}" 
+                           SelectedItem="{Binding ElementName=CameraCB, Path=SelectedItem.Camera, Mode=TwoWay}" SelectedValuePath="CameraId" 
+                           SelectedValue="{Binding ElementName=CameraCB, Path=SelectedItem.Camera}" />-->
+                            </Grid>
+                        </ControlTemplate>
+                    </ListBoxItem.Template>
+                </ListBoxItem>
+                <ListBoxItem>
+                    <ListBoxItem.Template>
+                        <ControlTemplate>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition />
+                                    <ColumnDefinition />
+                                </Grid.ColumnDefinitions>
+                                <TextBlock
                                     Grid.Column="0"
                                     Text="ExposureTime" />
-                            <TextBox Grid.Column="1" Text="{Binding Path=SequenceFun.sequence.ExposureTime}" />
-                        </Grid>
-                    </ControlTemplate>
-                </ListBoxItem.Template>
-            </ListBoxItem>
-        </ListBox>
-        <!--<DataGrid Name="DG1" ItemsSource="{Binding}" AutoGenerateColumns="False" >
+                                <TextBox Grid.Column="1" Text="{Binding Path=SequenceFun.sequence.ExposureTime}" />
+                            </Grid>
+                        </ControlTemplate>
+                    </ListBoxItem.Template>
+                </ListBoxItem>
+            </ListBox>
+            <!--<DataGrid Name="DG1" ItemsSource="{Binding}" AutoGenerateColumns="False" >
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Property"  Binding="{Binding Property}"/>
                 <DataGridTextColumn Header="Value" Binding="{Binding Value}" />
             </DataGrid.Columns>
         </DataGrid>-->
-        <!--<DataGrid Name="grid_UserList" ItemsSource="{Binding ModelList}" AutoGenerateColumns="False" CanUserAddRows="False">
+            <!--<DataGrid Name="grid_UserList" ItemsSource="{Binding ModelList}" AutoGenerateColumns="False" CanUserAddRows="False">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="姓名" Binding="{Binding UserName}"  Width="*" IsReadOnly="True" />
                 <DataGridTextColumn Header="ID" Binding="{Binding UserId}"  Width="100" IsReadOnly="True" />
@@ -95,6 +100,7 @@
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
             </DataGrid.Columns>
-        </DataGrid>-->
+        </DataGrid>-->  
+        </StackPanel>
     </Grid>
 </UserControl>

@@ -12,6 +12,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Threading;
 
 namespace Sequence.ViewModels
 {
@@ -26,14 +27,18 @@ namespace Sequence.ViewModels
                 _sequenceFunc = value;
              //   IDBServer dBServer = _Container.Resolve<IDBServer>();
                 camera = dBServer.GetCamera(_sequenceFunc.sequence.CameraId);
-                if (camera!=null)
-                {
-                    camera.Index = 0;
-                }
                 
                 RaisePropertyChanged(); }
         }
-        private Camera camera { get; set; }
+        private Camera _camera;
+
+        public Camera Camera
+        {
+            get { return _camera; }
+            set { _camera = value; }
+        }
+
+        private Camera camera { get; set;  }
         public ObservableCollection<Infrastructure.Models.Camera> CameraConfig { get; set; }
         private readonly IRegionManager _regionManager;
         private readonly IRegionViewRegistry _regionViewRegistry;
@@ -52,11 +57,22 @@ namespace Sequence.ViewModels
             this._Container = Container;
             this.NavigateCommand = new DelegateCommand<string>(this.Navigate);
             this.IsSelectedCommand = new DelegateCommand<Camera>(this._IsSelectedCommand);
+            dispatcherTimer.Tick += new EventHandler(dispatcherTimer_Tick);
+            dispatcherTimer.Interval = new TimeSpan(0, 0, 5);
+            dispatcherTimer.Start();
         }
+        
         private void _IsSelectedCommand(Camera SelectItem)
         {
             camera = SelectItem as Camera;
             _sequenceFunc.sequence.CameraId = camera.CameraId;
+            dBServer.SaveChanges();
+        }
+
+        DispatcherTimer dispatcherTimer = new DispatcherTimer();
+        private void dispatcherTimer_Tick(object sender, EventArgs e)
+        {
+            dispatcherTimer.Stop();
         }
     }
 }
